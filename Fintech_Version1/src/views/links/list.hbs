@@ -1,27 +1,26 @@
 <div class="container p-4">
     <div class="row">
         {{#each links}}
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="card text-center">
                 <div class="card-body">
-                      <p id="nombre">Nombre</p>  <h3 class="card-title text-uppercase">
-                            {{nameProduct}}
-                        </h3>
-                      <p id="tipo">Categoria</p>
-                    <h4 class="m-2">{{tipo}}</h4>
+                      <p id="nombre">Nombre</p> 
+                          <h4>{{nameProduct}}</h4>  
+                    <p id="tipo">Categoria</p>
+                    <h4 id="categoria" >{{tipo}}</h4>
                     <p id="unidad">Medida</p>
-                    <h4 class="m-2">{{unidadMedida}}</h4>
+                    <h4 id="medida">{{unidadMedida}}</h4>
                     <p id="cantidad">Cantidad</p>
-                    <h4 class="m-2">{{updateCantd}}</h4>
+                    <h4 id="actual" >{{updateCantd}}</h4>
                     <p id="costo">Costo</p>
-                    <h4 class="m-2">{{cost}}</h4>
-                    <p class="text-muted">
+                    <h4 id="precio">{{cost}}</h4>
+                    <p  id="time" class="text-muted">
                         {{timeago created_at}}
                     </p>
-                    <a class="btn btn-danger" href="/links/delete/{{id}}">
+                    <a id="delet" class="btn btn-danger" href="/links/delete/{{id}}">
                         Eliminar Producto
                     </a>
-                    <a class="btn btn-secondary" href="/links/edit/{{id}}">
+                    <a  id="edith" class="btn btn-secondary" href="/links/edit/{{id}}">
                         Editar Producto
                     </a>
                 </div>
