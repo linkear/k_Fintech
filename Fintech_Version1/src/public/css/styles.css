@@ -11,7 +11,7 @@ font-family: 'Oswald', sans-serif;
 }
 
 .navbar {
-    background: black !important;
+    background:#9400D3 !important;
 }
 
 .nav-link {
@@ -42,7 +42,7 @@ font-family: 'Oswald', sans-serif;
       height: 100vh;
     }
     .masthead h1 {
-      font-size: 5.5rem;
+      font-size: 4.5rem;
     }
   }
 #nombre{

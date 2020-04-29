@@ -25,13 +25,13 @@ passport.use(
         if (validPassword) {
           done(null, user, req.flash("success", "Welcome " + user.username));
         } else {
-          done(null, false, req.flash("message", "Incorrect Password"));
+          done(null, false, req.flash("message", "CONTRASEÑA INCORRECTA"));
         }
       } else {
         return done(
           null,
           false,
-          req.flash("message", "The Username does not exists.")
+          req.flash("message", "EL USUARIO INGRESADO NO EXISTE.")
         );
       }
     }

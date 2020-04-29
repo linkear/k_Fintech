@@ -12,19 +12,19 @@
                             <input name="tipo" rows="2" class="form-control" placeholder="Categoria"></input>
                         </div>
                         <div class="form-group">
-                            <input name="unidadMedida" rows="2" class="form-control" placeholder="Unidad de Medida ">
+                            <input type="text" name="unidadMedida" rows="2" class="form-control" placeholder="Unidad de Medida ">
                         </div>
                         <div class="form-group">
-                            <input type="numer" name="initCantd" class="form-control" placeholder="Cantidad Inicial">
+                            <input type="number" name="initCantd" class="form-control" placeholder="Cantidad Inicial">
                         </div>
                         <div class="form-group">
-                            <input type="numer" name="updateCantd" class="form-control" placeholder="Cantidad Actual">
+                            <input type="number" min="0"   name="updateCantd" class="form-control" placeholder="Cantidad Actual">
                         </div>
                         <div class="form-group">
-                            <input type="decimal" name="cost" class="form-control" placeholder="Precio">
+                            <input type="number" min="0" step="0.01" name="cost" class="form-control" placeholder="Precio">
                         </div>
                         <div class="form-group">
-                            <input type="decimal" name="iva" class="form-control" placeholder="Iva(opcional)">
+                            <input type="number" min="0" step="0.01" name="iva" class="form-control" placeholder="Iva(opcional)">
                         </div>
                         <div class="form-group">
                             <button class="btn btn-success btn-block">
