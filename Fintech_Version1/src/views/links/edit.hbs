@@ -1,0 +1,35 @@
+<div class="col-md-4 mx-auto">
+
+    <div class="card">
+        <div class="card-body">
+            <form action="/links/edit/{{link.id}}" method="POST">
+                <div class="form-group">
+                    <input type="text" name="nameProduct" class="form-control" placeholder="Nombre de Producto" value="{{link.nameProduct}}" autofocus>
+                </div>
+                <div class="form-group">
+                    <input name="tipo" rows="2" class="form-control" placeholder="Categoria" value="{{link.tipo}}">
+                </div>
+                <div class="form-group">
+                    <input name="unidadMedida" rows="2" class="form-control" placeholder="Unidad De Medida" value="{{link.unidadMedida}}">
+                </div>
+                <div class="form-group">
+                    <input type="numer" name="initCantd" class="form-control" placeholder="Cantidad Inicial" value="{{link.initCantd}}">
+                </div>
+                <div class="form-group">
+                    <input type="numer" name="updateCantd" class="form-control" placeholder="Cantidad Actual" value="{{link.updateCantd}}">
+                </div>
+                <div class="form-group">
+                <input type="decimal" name="cost" class="form-control" placeholder="Precio" value="{{link.cost}}">
+                </div>
+                <div class="form-group">
+                    <input type="decimal" name="iva" class="form-control" placeholder="Iva" value="{{link.iva}}">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success btn-block">
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

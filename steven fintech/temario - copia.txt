@@ -1,0 +1,41 @@
+- desarrollo de software agil 
+- fundamentos de kanban para el desasarrollo de software 
+-Fundamentos de Extreme Programming para desarrollo de software
+-Aprende a usar la metodología Lean
+-Fundamentos de Lean para desarrollo de software
+-DevOps esencial
+-Aprende SCRUM 
+-Scrum: Roles
+-SCRUM: Anti patrones 
+-Fundamentos de Six Sigma
+-Fundamentos de Six Sigma: Green Belt
+-Pensamiento crítico
+-Resolución de problemas empresariales
+-Cómo mejorar tu capacidad de toma de decisiones
+-Estrategias para tomar decisiones
+-Cómo superar el bloqueo creativo
+-Fundamentos del Design Thinking
+-Transformación digital: Equipos online y trabajo colaborativo
+-Cómo enfrentarse a los cambios
+-Cómo y por qué desarrollar una mentalidad de aprendizaje continuo
+-Fundamentos de la productividad
+-Fundamentos de la gestión del tiempo
+-Teletrabajo
+-Habilidades para teletrabajo: Trucos
+-Presentaciones orales online efectivas 
+-Bienestar, coordinación y flexibilidad en casa y en el trabajo
+-Cómo aumentar la resiliencia
+-Trucos para cambiar o crear nuevos hábitos
+-La importancia de las habilidades prácticas de vida
+-Presentación del curso “La zona de confort y cómo salir de ella”
+-Presentación del curso “Cómo superar la procrastinación”
+-Presentación del curso "Diseño para no diseñadores"
+-Diseño de videojuegos
+-Diseño de imagen en Photoshopx
+-Diseño de imagen en Illustrator
+-html
+-css
+-javascript
+-git
+-base de datos relacional
+-Docker
