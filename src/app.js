@@ -10,6 +10,8 @@ const bodyparser = require('body-parser');
 const fileUpload = require("express-fileupload");
 const multer = require('multer');
 const fs = require('fs');
+const mysql = require('mysql')
+const myconnection = require('express-myconnection')
 
 const { MYSQLHOST, MYSQLUSER, MYSQLPASSWORD, MYSQLDATABASE, MYSQLPORT } = require("./keys");
 
@@ -24,6 +26,14 @@ const options = {
     database: MYSQLDATABASE,
     createDatabaseTable: true
 };
+
+app.use(myconnection(mysql, {
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    port: 3306,
+    database: 'facturacion'
+}))
 
 const sessionStore = new MySQLStore(options);
 
@@ -47,11 +57,13 @@ app.set('view engine', '.hbs');
 //midlewars
 app.use(fileUpload({
     createParentPath: true, // Crea los directorios necesarios para almacenar los archivos si no existen
-  }));
+}));
 app.use(morgan('dev'));
+
 app.use(bodyparser.urlencoded({
     extended: false
 }));
+
 app.use(bodyparser.json());
 app.use(session({
     key: 'session_cookie_name',
@@ -80,4 +92,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //routers
 
+app.get('/', (req, res) => {
+    res.render('index')
+})
+
+
+app.get('/tienda', (req, res) => {
+    res.render('tienda/tienda')
+})
+app.get('/login', (req, res) => {
+    res.render('login/login')
+})
+app.get('/register', (req, res) => {
+    res.render('login/register')
+})
 module.exports = app;
