@@ -106,4 +106,19 @@ app.get('/login', (req, res) => {
 app.get('/register', (req, res) => {
     res.render('login/register')
 })
+app.get('/agregar', (req, res) => {
+    res.render('tienda/agregar')
+})
+app.get('/editar', (req, res) => {
+    res.render('tienda/editar')
+})
+app.get('/vista', (req, res) => {
+    res.render('tienda/vista')
+})
+app.get('/factura', (req, res) => {
+    res.render('factura/factura');
+})
+app.get('/crear', (req, res) => {
+    res.render('factura/crear');
+})
 module.exports = app;

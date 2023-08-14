@@ -17,6 +17,14 @@ body{
     width: 90%;
     height: 90%;
 }
+a{
+    color: white;
+}
+a:hover{
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
 nav{
     height: 80px;
     display: flex;
@@ -67,9 +75,9 @@ nav #menu-btn i{
     }
     nav ul {
         position: fixed;
-        top: 63px;
+        top: 70px;
         left: -100%;
-        background: #2a3e66;
+        background: linear-gradient(180deg, rgba(3, 13, 47, 0.80) 28.74%, rgba(58, 72, 192, 0.80) 49.05%);;
         height: 100vh;
         width: 100%;
         display: block;
@@ -90,5 +98,5 @@ nav #menu-btn i{
     nav ul li a:active{
     color: black;
     background: none;
-}
+    }
 }

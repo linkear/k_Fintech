@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="/css/agregar.css">
+<body>
+        <nav>
+            <div id=""><a href="/"><img src="/img/logo.png" alt="FINTECH" height="80px"></a></div>
+            <input type="checkbox" id="click">
+            <label for="click" id="menu-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <ul>
+                <li><a id="active" href="/vista">Inicio</a></li>
+            </ul>
+        </nav>
+        <form action="" id="contenedor">
+            <div id="imagenNegocio">
+                <p>Imagen del Negocio</p>
+                <input type="image" src="/img/file.png" alt="Enviar" width="30%">
+            </div>
+                {{!-- <input type="image" src="/img/file.png" id="imagen" > --}}
+                {{!-- <label for="" id="negocio">Nombre del Negocio</label><br> --}}
+                <input type="text" name="" id="negocio" placeholder="Nombre del Negocio">
+                <input type="number" id="ruc" placeholder="No. de Ruc">
+                <input type="text"id="propietario" placeholder="Nombre del propietario">
+                <input type="text"id="matriz" placeholder="Direccion Matriz">
+                <input type="text"id="sucursal" placeholder="Direccion Sucural">
+                <input type="text"id="email" placeholder="Correo Electronico">
+                <input type="number"id="telefono" placeholder="No. telefono">
+                <button id="btn" type="button"><a href="/editar">Editar</a></button>
+        </form>
+</body>
