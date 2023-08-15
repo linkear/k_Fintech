@@ -1,17 +1,294 @@
-<link rel="stylesheet" href="/css/crear.css">
-<body>
-    <div id="contenedor"></div> 
-                <nav>
+<link rel="stylesheet" href="/css/factura.css">
+
+<title>Crear Factura</title>
+
+<head>
+    <script>
+        // Función para mostrar la fecha de creación
+        function mostrarFechaCreacion() {
+            var fechaActual = new Date();
+            var dia = fechaActual.getDate();
+            var mes = fechaActual.getMonth() + 1; // Los meses en JavaScript son base 0
+            var anio = fechaActual.getFullYear();
+
+            var fechaCreacion = dia + '/' + mes + '/' + anio;
+
+            document.getElementById('fecha-creacion').innerHTML = fechaCreacion;
+        }
+
+        function agregarFila() {
+            const table = document.querySelector('.table-container');
+            const newRow = table.insertRow();
+            for (let i = 0; i < 4; i++) {
+                const cell = newRow.insertCell();
+                const input = document.createElement('input');
+                input.type = i === 0 ? 'number' : 'text';
+                cell.appendChild(input);
+            }
+        }
+
+        function eliminarFila() {
+            const table = document.querySelector('.table-container');
+            const rows = table.rows;
+
+            // Verifica que haya al menos 3 filas (incluyendo la fila por defecto y la de títulos)
+            if (rows.length > 2) {
+                // Elimina la última fila
+                table.deleteRow(rows.length - 1);
+            }
+            else {
+                alert("No se pueden eliminar mas filas");
+            }
+        }
+
+
+    </script>
+
+
+</head>
+
+<body onload="mostrarFechaCreacion()">
+    <div id="contenedor">
+        <nav>
             <div id=""><a href="/"><img src="/img/logo.png" alt="FINTECH" height="80px"></a></div>
-            <input type="checkbox" id="click">
+
             <label for="click" id="menu-btn">
                 <i class="fas fa-bars"></i>
             </label>
-            {{!-- <ul>
-                <li><a id="active" href="/crear">Agregar Factura</a></li>
-            </ul> --}}
         </nav>
-        <form action="" id="formulario">
-            
+
+
+        <form class="formulario" action="/crearFactura" method="post">
+            <div class="divConLinea">
+                <div class="izquierda">
+
+                    <div class="contenedor">
+                        <img class="imagen-adaptable"
+                            src="https://www.produccion.gob.ec/wp-content/uploads/2020/04/IMG-20200402-WA0042.jpg"
+                            alt="Imagen Adaptable">
+                        <h2>Viveres Carmita</h2>
+                    </div>
+                    <div class="contenedor2">
+                        <h1>DANIELA PAOLA TARAPUES ROSERO</h1>
+                    </div>
+                    <br>
+                    <div>
+                        <p>Direccion Matriz: </p>
+                        <p>Direccion Sucursal: </p>
+                        <p>Contacto:</p>
+                    </div>
+                </div>
+                <div class="derecha">
+                    <div class="tabla-contenedor">
+                        <table border="1" class="numero">
+
+                            <tr>
+                                <td>
+                                    <h3>RUC</h3>
+                                </td>
+                                <td>
+                                    <h3>1790112233001</h3>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="nFactura">
+                                    <h3>Factura </h3>
+                                    <h3>NO. OO2-002-123456789</h3>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h3>AUT.SRI</h3>
+                                </td>
+                                <td>
+                                    <h3>1234567890</h3>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <br>
+                    <p>Fecha de Autorización: 11/10/2022 </p>
+                </div>
+            </div>
+
+            <div class="divConLinea">
+                <div class="izquierda">
+                    <table class="borderless-table">
+                        <tr>
+                            <th>
+                                <p>Sr (es):</p>
+                            </th>
+                            <td><input name="nombre"  type="text"></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <p>Dirección:</p>
+                            </th>
+                            <td><input name="direccion"  type="text"></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <p>Celular:</p>
+                            </th>
+                            <td><input name="celular"  type="text"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="Derecha">
+                    <table class="borderless-table">
+                        <tr>
+                            <th>
+                                <p>R.U.C/C.I. :</p>
+                            </th>
+                            <td><input name="id"  type="text"></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <p>Correo:</p>
+                            </th>
+                            <td><input name="correo" type="text"></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <p>Fecha de emisión:</p>
+                            </th>
+                            <td>
+                                <p> <span id="fecha-creacion"></span></p>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+
+            </div>
+            <div class="divSeccion">
+                <table class="table-container">
+                    <tr>
+                        <th>CANT.</th>
+                        <th>DESCRIPCION</th>
+                        <th>P.UNITARIO</th>
+                        <th>V.TOTAL</th>
+                    </tr>
+                    <tr>
+                        <td><input type="number" name="" id=""></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                </table>
+
+
+
+            </div>
+
+            <div class="divSeccion">
+                <div class="izquierda">
+                    <table class="formaPago">
+                        <tr>
+                            <th colspan="3">
+                                <h3>FORMA DE PAGO</h3>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>Efectivo</td>
+                            <td><input type="checkbox" name="efectivo" id="efectivo"></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Tarjeta de crédito </td>
+                            <td><input type="checkbox" name="credito" id="credito"></td>
+                            <td><input type="text"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="derecha">
+                    <div class="tabla-contenedor">
+                        <table>
+                            <tr>
+                                <th>SUB TOTAL....%</th>
+                                <td><input name="sub_total" id="sub_total" type="text"></td>
+                            </tr>
+                            <tr>
+                                <th>SUB TOTAL 0%</th>
+                                <td><input type="text"> </td>
+                            </tr>
+                            <tr>
+                                <th>DESCUENTO</th>
+                                <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <th>SUB TOTAL</th>
+                                <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <th>IVA...%</th>
+                                <td><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <th>VALOR TOTAL</th>
+                                <td><input type="text" readonly value="Automático"></td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <button type="submit">Crear</button>
         </form>
+
+                <div class="herramientasDiv">
+                    <table class="herramientas">
+                        <tr>
+                            <th colspan="2">Herramientas</th>
+                        </tr>
+                        <tr>
+                            <td>Agregar Fila</td>
+                            <td><button class="button" onclick="agregarFila()">+</button></td>
+                        </tr>
+                        <tr>
+                            <td>Eliminar Fila</td>
+                            <td><button class="button" onclick="eliminarFila()">-</button></td>
+                        </tr>
+                    </table>
+                </div>
+
+
+
+        <script>
+            // Función para mostrar u ocultar la tabla de herramientas
+            function toggleHerramientas() {
+                var herramientasTable = document.querySelector('.herramientas');
+                herramientasTable.classList.toggle('hidden-table');
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const generateButton = document.getElementById('generate-button');
+
+                generateButton.addEventListener('click', function (event) {
+                    event.preventDefault();
+
+                    const invoiceForm = document.getElementById('invoice-form');
+                    const inputs = invoiceForm.querySelectorAll('input');
+
+                    const labelsContainer = window.open('factura.html', '_blank');
+                    const labelsDiv = labelsContainer.document.getElementById('labels-container');
+                    labelsDiv.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevas etiquetas
+
+                    inputs.forEach(function (input) {
+                        const label = labelsContainer.document.createElement('label');
+                        label.textContent = input.value;
+                        labelsDiv.appendChild(label);
+                    });
+                });
+            });
+
+
+
+        </script>
+
+
+    </div>
+
 </body>
