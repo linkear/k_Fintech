@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/factura.css">
+<link rel="stylesheet" href="/css/crear.css">
 
 <title>Crear Factura</title>
 
@@ -17,7 +17,7 @@
         }
 
         function agregarFila() {
-            const table = document.querySelector('.table-container');
+            const table = document.querySelector('#table-container');
             const newRow = table.insertRow();
             for (let i = 0; i < 4; i++) {
                 const cell = newRow.insertCell();
@@ -28,7 +28,7 @@
         }
 
         function eliminarFila() {
-            const table = document.querySelector('.table-container');
+            const table = document.querySelector('#table-container');
             const rows = table.rows;
 
             // Verifica que haya al menos 3 filas (incluyendo la fila por defecto y la de títulos)
@@ -48,27 +48,28 @@
 </head>
 
 <body onload="mostrarFechaCreacion()">
-    <div id="contenedor">
-        <nav>
-            <div id=""><a href="/"><img src="/img/logo.png" alt="FINTECH" height="80px"></a></div>
 
-            <label for="click" id="menu-btn">
-                <i class="fas fa-bars"></i>
-            </label>
-        </nav>
+    <nav>
+        <div id="logoFintech"><a href="/"><img src="/img/logo.png" alt="FINTECH" height="80px"></a></div>
+
+        <label for="click" id="menu-btn">
+            <i id="fas fa-bars"></i>
+        </label>
+    </nav>
+
+    <div id="contenedor"> 
+
+        <form id="formulario" action="/crear" method="post">
+            <div id="divConLinea">
+                <div id="izquierda">
 
 
-        <form class="formulario" action="/crear" method="post">
-            <div class="divConLinea">
-                <div class="izquierda">
+                    <img id="imagen-adaptable"
+                        src="https://www.produccion.gob.ec/wp-content/uploads/2020/04/IMG-20200402-WA0042.jpg"
+                        alt="Imagen Adaptable">
+                    <h2>Viveres Carmita</h2>
 
-                    <div class="contenedor">
-                        <img class="imagen-adaptable"
-                            src="https://www.produccion.gob.ec/wp-content/uploads/2020/04/IMG-20200402-WA0042.jpg"
-                            alt="Imagen Adaptable">
-                        <h2>Viveres Carmita</h2>
-                    </div>
-                    <div class="contenedor2">
+                    <div id="contenedor2">
                         <h1>DANIELA PAOLA TARAPUES ROSERO</h1>
                     </div>
                     <br>
@@ -78,9 +79,9 @@
                         <p>Contacto:</p>
                     </div>
                 </div>
-                <div class="derecha">
-                    <div class="tabla-contenedor">
-                        <table border="1" class="numero">
+                <div id="derecha">
+                    <div id="tabla-contenedor">
+                        <table border="1" id="numero">
 
                             <tr>
                                 <td>
@@ -91,7 +92,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2" class="nFactura">
+                                <td colspan="2" id="nFactura">
                                     <h3>Factura </h3>
                                     <h3>NO. OO2-002-123456789</h3>
                                 </td>
@@ -112,50 +113,50 @@
                 </div>
             </div>
 
-            <div class="divConLinea">
-                <div class="izquierda">
-                    <table class="borderless-table">
+            <div id="divConLinea">
+                <div id="izquierda">
+                    <table id="borderless-table">
                         <tr>
                             <th>
                                 <p>Sr (es):</p>
                             </th>
-                            <td><input name="nombre"  type="text"></td>
+                            <td><input name="nombre" type="text" required></td>
                         </tr>
                         <tr>
                             <th>
                                 <p>Dirección:</p>
                             </th>
-                            <td><input name="direccion"  type="text"></td>
+                            <td><input name="direccion" type="text " required></td>
                         </tr>
                         <tr>
                             <th>
                                 <p>Celular:</p>
                             </th>
-                            <td><input name="celular"  type="text"></td>
+                            <td><input name="celular" type="text" required></td>
                         </tr>
                     </table>
                 </div>
 
-                <div class="Derecha">
-                    <table class="borderless-table">
+                <div id="derecha">
+                    <table id="borderless-table">
                         <tr>
                             <th>
                                 <p>R.U.C/C.I. :</p>
                             </th>
-                            <td><input name="id"  type="text"></td>
+                            <td><input name="id" type="text" required></td>
                         </tr>
                         <tr>
                             <th>
                                 <p>Correo:</p>
                             </th>
-                            <td><input name="correo" type="text"></td>
+                            <td><input name="correo" type="text" required></td>
                         </tr>
                         <tr>
                             <th>
                                 <p>Fecha de emisión:</p>
                             </th>
                             <td>
-                                <p> <span id="fecha-creacion"></span></p>
+                                <p> <span id="fecha-creacion" required></span></p>
                             </td>
                         </tr>
                     </table>
@@ -163,8 +164,8 @@
                 </div>
 
             </div>
-            <div class="divSeccion">
-                <table class="table-container">
+            <div id="divSeccion">
+                <table id="table-container">
                     <tr>
                         <th>CANT.</th>
                         <th>DESCRIPCION</th>
@@ -183,9 +184,9 @@
 
             </div>
 
-            <div class="divSeccion">
-                <div class="izquierda">
-                    <table class="formaPago">
+            <div id="divSeccion">
+                <div id="izquierda">
+                    <table id="formaPago">
                         <tr>
                             <th colspan="3">
                                 <h3>FORMA DE PAGO</h3>
@@ -203,8 +204,8 @@
                         </tr>
                     </table>
                 </div>
-                <div class="derecha">
-                    <div class="tabla-contenedor">
+                <div id="derecha">
+                    <div id="tabla-contenedor">
                         <table>
                             <tr>
                                 <th>SUB TOTAL....%</th>
@@ -236,59 +237,25 @@
                 </div>
             </div>
             <button type="submit">Crear</button>
+            
         </form>
 
-                <div class="herramientasDiv">
-                    <table class="herramientas">
-                        <tr>
-                            <th colspan="2">Herramientas</th>
-                        </tr>
-                        <tr>
-                            <td>Agregar Fila</td>
-                            <td><button class="button" onclick="agregarFila()">+</button></td>
-                        </tr>
-                        <tr>
-                            <td>Eliminar Fila</td>
-                            <td><button class="button" onclick="eliminarFila()">-</button></td>
-                        </tr>
-                    </table>
-                </div>
-
-
-
-        <script>
-            // Función para mostrar u ocultar la tabla de herramientas
-            function toggleHerramientas() {
-                var herramientasTable = document.querySelector('.herramientas');
-                herramientasTable.classList.toggle('hidden-table');
-            }
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const generateButton = document.getElementById('generate-button');
-
-                generateButton.addEventListener('click', function (event) {
-                    event.preventDefault();
-
-                    const invoiceForm = document.getElementById('invoice-form');
-                    const inputs = invoiceForm.querySelectorAll('input');
-
-                    const labelsContainer = window.open('factura.html', '_blank');
-                    const labelsDiv = labelsContainer.document.getElementById('labels-container');
-                    labelsDiv.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevas etiquetas
-
-                    inputs.forEach(function (input) {
-                        const label = labelsContainer.document.createElement('label');
-                        label.textContent = input.value;
-                        labelsDiv.appendChild(label);
-                    });
-                });
-            });
-
-
-
-        </script>
-
-
+        <div id="herramientasDiv">
+            <table id="herramientas">
+                <tr>
+                    <th colspan="2">Herramientas</th>
+                </tr>
+                <tr>
+                    <td>Agregar Fila</td>
+                    <td><button id="button" onclick="agregarFila()">+</button></td>
+                </tr>
+                <tr>
+                    <td>Eliminar Fila</td>
+                    <td><button id="button" onclick="eliminarFila()">-</button></td>
+                </tr>
+            </table>
+        </div>
     </div>
+    
 
 </body>
