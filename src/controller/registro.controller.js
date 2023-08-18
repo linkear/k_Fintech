@@ -17,14 +17,14 @@ registro.mostrarLogin = (req, res, next) =>{
 }
 //login
 registro.Login = passport.authenticate('local.signin', {
-    successRedirect: '/agregar',
+    successRedirect: '/principal',
     failureRedirect: '/login',
     failureFlash: true
-})
+});
 
-// registro.cierreSesion = (req, res, next) => {
-//     req.logOut();
-//     res.redirect('/login');
-// };
+registro.cierreSesion = (req, res, next) => {
+    req.logOut();
+    res.redirect('/login');
+};
 
 module.exports = registro;

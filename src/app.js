@@ -96,7 +96,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //rutas principales
 app.use(require("./router/registro.rutas"))
 app.use(require('./router/index.rutas'))
-
+app.use(require('./router/principal.router'))
 //Registro de la tienda
 app.use('/tienda', require('./router/tienda.router'))
 

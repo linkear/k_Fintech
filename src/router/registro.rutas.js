@@ -7,7 +7,7 @@ rutas.get("/registro", mostrarRegistro)
 rutas.post("/registro", Registro)
 rutas.get("/login", mostrarLogin)
 rutas.post("/login", Login)
-rutas.get("/agregar")
+rutas.get("/CerrarSecion", cierreSesion)
 
 
 module.exports = rutas
