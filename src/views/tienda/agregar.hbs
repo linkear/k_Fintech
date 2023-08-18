@@ -10,7 +10,7 @@
                 <li><a id="active" href="/agregar">Agregar Tienda</a></li>
             </ul> --}}
         </nav>
-        <form action="" id="contenedor">
+        <form action="/tienda/agregar/{user.idDueños{}}" method="post" id="contenedor">
             <div id="imagenNegocio">
                 <p>Imagen del Negocio</p>
                 <input type="image" src="/img/file.png" alt="Enviar" width="30%">
@@ -24,6 +24,6 @@
                 <input type="text"id="sucursal" placeholder="Direccion Sucural">
                 <input type="text"id="email" placeholder="Correo Electronico">
                 <input type="number"id="telefono" placeholder="No. telefono">
-                <button id="btn" type="button"><a href="/vista">Guardar</a></button>
+                <button id="btn" type="submit">Guardar</button>
         </form>
 </body>

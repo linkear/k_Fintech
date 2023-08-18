@@ -10,7 +10,6 @@ const dueño = (sequelize,type)=>{
         cedula_Dueño:type.STRING,
         celular_Dueño:type.STRING,
         correo_electronico_Dueño:type.STRING,
-        username_Dueño: type.STRING(99),
         password_Dueño: type.STRING,
 
         crearDueño:{

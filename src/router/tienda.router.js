@@ -1,7 +1,9 @@
 const express = require('express');
-const {Mostrar} = require('../controller/tienda.controller');
-const router = express.Router();
+const rutas = express.Router()
 
-router.get('/', Mostrar)
+const { mostrar, mandar, lista, traer, actualizar } = require('../controller/tienda.controller')
+const { isLoggedIn } = require('../lib/auth')
 
-module.exports = router 
+rutas.get('/agregar/:id', isLoggedIn, mostrar)
+
+module.exports = rutas

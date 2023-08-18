@@ -12,6 +12,7 @@ const multer = require('multer');
 const fs = require('fs');
 const mysql = require('mysql')
 const myconnection = require('express-myconnection')
+const tiendaRoutes = require('./router/tienda.router')
 
 const { MYSQLHOST, MYSQLUSER, MYSQLPASSWORD, MYSQLDATABASE, MYSQLPORT } = require("./keys");
 
@@ -92,29 +93,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //routers
 
-app.get('/', (req, res) => {
-    res.render('index')
-})
+//rutas principales
+app.use(require("./router/registro.rutas"))
+app.use(require('./router/index.rutas'))
 
+//Registro de la tienda
+app.use('/tienda', require('./router/tienda.router'))
 
-app.get('/tienda', (req, res) => {
-    res.render('tienda/tienda')
-})
-app.get('/login', (req, res) => {
-    res.render('login/login')
-})
-app.get('/register', (req, res) => {
-    res.render('login/register')
-})
-app.get('/agregar', (req, res) => {
-    res.render('tienda/agregar')
-})
-app.get('/editar', (req, res) => {
-    res.render('tienda/editar')
-})
-app.get('/vista', (req, res) => {
-    res.render('tienda/vista')
-})
 app.get('/factura', (req, res) => {
     res.render('factura/factura');
 })

@@ -4,18 +4,19 @@
     <section id="container">
         <header>Iniciar Sesion</header>
         <center><a href="/"><img src="/img/logo.png" alt=""></a></center>
-        <form action="" method="POST" id="form">
+        
+        <form action="/login" method="POST" id="form">
             <div id="input-box">
                 <label>Tu Email:</label>
                 <input type="email" name="correo_electronico_Dueño" placeholder="ejemplo@gmail.com" required />
             </div>
             <div id="input-box">
                 <label>Contraseña:</label>
-                <input type="password" name="password_Dueño" placeholder="*****" required />
+                <input type="password" name="password_Dueño" placeholder="Contraseña:" required />
             </div>
-            <button><a href="/tienda">Ingregsar</a></button>
+            <button type="submit">Ingregsar</button>
             <br>
-            <center>¿No tienes una cuenta? <a href="/register">Registrate</a></center>
+            <center>¿No tienes una cuenta? <a href="/registro">Registrate</a></center>
         </form>
     </section>
 </body>
