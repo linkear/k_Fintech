@@ -1,3 +1,4 @@
+
 <link rel="stylesheet" href="/css/crear.css">
 
 <title>Crear Factura</title>
@@ -17,7 +18,7 @@
         }
 
         function agregarFila() {
-            const table = document.querySelector('#table-container');
+            const table = document.querySelector('#detalle_factura');
             const newRow = table.insertRow();
             for (let i = 0; i < 4; i++) {
                 const cell = newRow.insertCell();
@@ -28,7 +29,7 @@
         }
 
         function eliminarFila() {
-            const table = document.querySelector('#table-container');
+            const table = document.querySelector('#detalle_factura');
             const rows = table.rows;
 
             // Verifica que haya al menos 3 filas (incluyendo la fila por defecto y la de títulos)
@@ -54,22 +55,24 @@
 
         <label for="click" id="menu-btn">
             <i id="fas fa-bars"></i>
+
         </label>
     </nav>
 
-    <div id="contenedor"> 
+    <div id="contenedor">
 
         <form id="formulario" action="/crear" method="post">
+
             <div id="divConLinea">
                 <div id="izquierda">
+                    <div id="dueño">
+                        <img id="imagen-adaptable"
+                            src="https://www.produccion.gob.ec/wp-content/uploads/2020/04/IMG-20200402-WA0042.jpg"
+                            alt="Imagen Adaptable">
+
+                        <h2>Viveres Carmita</h2>
 
 
-                    <img id="imagen-adaptable"
-                        src="https://www.produccion.gob.ec/wp-content/uploads/2020/04/IMG-20200402-WA0042.jpg"
-                        alt="Imagen Adaptable">
-                    <h2>Viveres Carmita</h2>
-
-                    <div id="contenedor2">
                         <h1>DANIELA PAOLA TARAPUES ROSERO</h1>
                     </div>
                     <br>
@@ -80,9 +83,8 @@
                     </div>
                 </div>
                 <div id="derecha">
-                    <div id="tabla-contenedor">
+                    <div id="div_nFactura">
                         <table border="1" id="numero">
-
                             <tr>
                                 <td>
                                     <h3>RUC</h3>
@@ -112,79 +114,78 @@
                     <p>Fecha de Autorización: 11/10/2022 </p>
                 </div>
             </div>
+            <div id="cliente">
+                <div id="divConLinea">
+                    <div id="izquierda">
+                        <table>
+                            <tr>
+                                <th>
+                                    <label>Sr (es):</label>
+                                </th>
+                                <td><input name="nombre" type="text" required></td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <label>Dirección:</label>
+                                </th>
+                                <td><input name="direccion" type="text " required></td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <label>Celular:</label>
+                                </th>
+                                <td><input name="celular" type="text" required></td>
+                            </tr>
+                        </table>
+                    </div>
 
-            <div id="divConLinea">
-                <div id="izquierda">
-                    <table id="borderless-table">
-                        <tr>
-                            <th>
-                                <p>Sr (es):</p>
-                            </th>
-                            <td><input name="nombre" type="text" required></td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <p>Dirección:</p>
-                            </th>
-                            <td><input name="direccion" type="text " required></td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <p>Celular:</p>
-                            </th>
-                            <td><input name="celular" type="text" required></td>
-                        </tr>
-                    </table>
-                </div>
+                    <div id="derecha">
+                        <table>
+                            <tr>
+                                <th>
+                                    <label>R.U.C/C.I. :</label>
+                                </th>
+                                <td><input name="id" type="text" required></td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <label>Correo:</label>
+                                </th>
+                                <td><input name="correo" type="text" required></td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <label>Fecha de emisión:</label>
+                                </th>
+                                <td>
+                                    <label> <span id="fecha-creacion" required></span></label>
+                                </td>
+                            </tr>
+                        </table>
 
-                <div id="derecha">
-                    <table id="borderless-table">
-                        <tr>
-                            <th>
-                                <p>R.U.C/C.I. :</p>
-                            </th>
-                            <td><input name="id" type="text" required></td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <p>Correo:</p>
-                            </th>
-                            <td><input name="correo" type="text" required></td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <p>Fecha de emisión:</p>
-                            </th>
-                            <td>
-                                <p> <span id="fecha-creacion" required></span></p>
-                            </td>
-                        </tr>
-                    </table>
-
+                    </div>
                 </div>
 
             </div>
-            <div id="divSeccion">
-                <table id="table-container">
+            <br>
+            <div>
+                <table id="detalle_factura">
                     <tr>
-                        <th>CANT.</th>
-                        <th>DESCRIPCION</th>
-                        <th>P.UNITARIO</th>
-                        <th>V.TOTAL</th>
+                        <th><label>CANT.</label></th>
+                        <th><label>DESCRIPCION</label></th>
+                        <th><label>P.UNITARIO</label></th>
+                        <th><label>P.TOTAL</label></th>
                     </tr>
-                    <tr>
-                        <td><input type="number" name="" id=""></td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
-                        <td><input type="text"></td>
+                    <tr id="titulos">
+                        <td><input name="cantidad" type="number" name="" id=""></td>
+                        <td><input name="descripcion" type="text"></td>
+                        <td><input name="precio_unitario" type="text"></td>
+                        <td><input name="precio_total" type="text"></td>
                     </tr>
                 </table>
-
-
-
             </div>
-
-            <div id="divSeccion">
+            <br>
+            <div id="forma_pago_total">
                 <div id="izquierda">
                     <table id="formaPago">
                         <tr>
@@ -194,41 +195,42 @@
                         </tr>
                         <tr>
                             <td>Efectivo</td>
-                            <td><input type="checkbox" name="efectivo" id="efectivo"></td>
+                            <td><input type="radio" name="forma_pago" value="efectivo" id="efectivo"></td>
                             <td><input type="text"></td>
                         </tr>
                         <tr>
                             <td>Tarjeta de crédito </td>
-                            <td><input type="checkbox" name="credito" id="credito"></td>
+                            <td><input type="radio" name="forma_pago" value="credito" id="credito"></td>
                             <td><input type="text"></td>
                         </tr>
                     </table>
+
                 </div>
                 <div id="derecha">
-                    <div id="tabla-contenedor">
+                    <div id="detalle_total">
                         <table>
                             <tr>
-                                <th>SUB TOTAL....%</th>
+                                <th> <label>SUB TOTAL....%</label></th>
                                 <td><input name="sub_total" id="sub_total" type="text"></td>
                             </tr>
                             <tr>
-                                <th>SUB TOTAL 0%</th>
+                                <th><label>SUB TOTAL 0%</label></th>
                                 <td><input type="text"> </td>
                             </tr>
                             <tr>
-                                <th>DESCUENTO</th>
+                                <th><label>DESCUENTO</label></th>
                                 <td><input type="text"></td>
                             </tr>
                             <tr>
-                                <th>SUB TOTAL</th>
+                                <th><label>SUB TOTAL</label></th>
                                 <td><input type="text"></td>
                             </tr>
                             <tr>
-                                <th>IVA...%</th>
+                                <th><label>IVA...%</label></th>
                                 <td><input type="text"></td>
                             </tr>
                             <tr>
-                                <th>VALOR TOTAL</th>
+                                <th><label>VALOR TOTAL</label></th>
                                 <td><input type="text" readonly value="Automático"></td>
                             </tr>
                         </table>
@@ -237,7 +239,7 @@
                 </div>
             </div>
             <button type="submit">Crear</button>
-            
+
         </form>
 
         <div id="herramientasDiv">
@@ -256,6 +258,6 @@
             </table>
         </div>
     </div>
-    
+
 
 </body>
