@@ -1,4 +1,4 @@
-  #logoFintech {
+ #logoFintech {
       position: absolute;
       top: 0;
       left: 1%;
@@ -21,48 +21,58 @@
       display: none;
   }
 
-  body {
-    margin: 0;
-    padding: 0;
-    /* Establece el fondo del cuerpo con el gradiente */
-    background: linear-gradient(180deg, rgba(3, 13, 47, 0.80) 28.74%, rgba(58, 72, 192, 0.80) 49.05%);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    overflow: hidden; /* Evita el desplazamiento vertical */
-}
-#herramientasDiv {
-    flex: 1; /* Toma el espacio disponible en el contenedor */
-    padding: 20px; /* Espaciado interno para la tabla de herramientas */
-  }
-#contenedor {
-    background-image: url(/img/fondo.png);
-    background-repeat: no-repeat; 
-    background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
-    position: absolute;
-    border-radius: 10px;
-    top: 10; 
-    right: 0; /* Mantén el contenedor pegado al lado derecho */
-    width: 90%;
-    height: calc(100vh - 40px);  /* Cambiado la altura a 100% para que el contenedor cubra toda la altura, 40 px para mostrar mas abajo del contenido */
-    overflow: auto; /* Permite el desplazamiento interno si el contenido es demasiado largo */
-}
 
+  body {
+      margin: 0;
+      padding: 0;
+      /* Establece el fondo del cuerpo con el gradiente */
+      background: linear-gradient(180deg, rgba(3, 13, 47, 0.80) 28.74%, rgba(58, 72, 192, 0.80) 49.05%);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      overflow: hidden;
+      /* Evita el desplazamiento vertical */
+  }
+
+  #herramientasDiv {
+      flex: 1;
+      /* Toma el espacio disponible en el contenedor */
+      padding: 20px;
+      /* Espaciado interno para la tabla de herramientas */
+  }
+
+  #contenedor {
+      background-image: url(/img/fondo.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      /* Ajusta la imagen para cubrir todo el contenedor */
+      position: absolute;
+      border-radius: 10px;
+      top: 10;
+      right: 0;
+      /* Mantén el contenedor pegado al lado derecho */
+      width: 90%;
+      height: calc(100vh - 40px);
+      /* Cambiado la altura a 100% para que el contenedor cubra toda la altura, 40 px para mostrar mas abajo del contenido */
+      overflow: auto;
+      /* Permite el desplazamiento interno si el contenido es demasiado largo */
+  }
 
   #formulario {
-    margin-top: auto;
+      margin-top: 10px;
       max-width: 100%;
       margin: 0 auto;
       background-color: rgb(255, 255, 255);
+      border: 2px solid #000;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(2px);
       border-radius: 10px;
       padding: 20px;
       text-align: center;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
       width: 950px;
-
   }
-
 
   #divConLinea {
       display: flex;
@@ -72,68 +82,183 @@
       padding-bottom: 10px;
   }
 
-  #contenedor2 {
-      border-bottom: 2px solid black;
-
+  #dueño{
+    border-bottom: 1px solid #000;
   }
 
+  #div_nFactura {
+      border: 2px solid #000;
+      padding: 20px;
+  }
 
-  #divSeccion {
-      display: flex;
-      align-items: center;
+  #numero {
+      border: 2px solid #000;
+  }
 
-      padding-bottom: 10px;
+  #numero th,
+  .numero td {
+      padding: 20px;
+      border: 1px solid black;
+      /* Agrega bordes a las celdas */
+  }
+
+  #nFactura {
+      text-align: center;
+  }
+
+  #cliente th,
+  #cliente td {
+      padding: 6px;
+      text-align: left;
+      vertical-align: middle;
+  }
+
+  #cliente input,
+  #cliente label {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #000;
+      background: #D9D9D9;
+      box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25), 0px 3px 3px 0px rgba(0, 0, 0, 0.25);
+      height: 40px;
+      padding: 0 10px;
+      line-height: 40px;
+  }
+
+  #cliente label {
+      width: auto;
+      /* Ancho se ajustará al contenido */
+      padding-right: 10px;
+  }
+
+  #cliente table {
+      border-collapse: collapse;
+      width: 100%;
   }
 
   #izquierda {
       flex: 1;
       text-align: left;
+      padding-right: 10px;
   }
 
   #derecha {
       flex: 1;
       text-align: right;
+      padding-left: 20px;
+      padding-right: 20px;
+  }
+
+  #contenedor2 {
+      border-bottom: 2px solid black;
+
+  }
+
+  #detalle_factura {
+      margin: auto;
+      padding: 20px;
+  }
+
+  #detalle_factura th {
+      border: 1px solid #ffffff;
+      border-bottom: none;
+  }
+
+  #detalle_factura label {
+
+      padding: 5px;
+      background-color: #D9D9D9;
+      border: 1px solid rgb(0, 0, 0);
+      font-weight: bold 20px;
+      border-radius: 10px;
+      width: auto;
+      height: 100%;
+  }
+
+  #detalle_factura input {
+      font-size: bold 10px;
+      border: none;
+      width: max-content;
+      height: max-content;
+  }
+
+  #detalle_factura td {
+      border: 1px solid #000000;
+      border-radius: 10px;
+  }
+
+  #detalle_total table {
+      border-collapse: collapse;
+      /* Para asegurar que las celdas no tengan espacios entre sí */
+      border: 2px solid #000000;
+      margin: 0%;
+      width: 100%;
+      /* Asegura que la tabla ocupe todo el ancho disponible */
+  }
+
+  #detalle_total th {
+      padding: 5px 7px;
+  }
+
+  #detalle_total input {
+      width: 100px;
+  }
+
+  #detalle_total td {
+      padding: 3px 15px;
+      border: 1px solid #ffffff;
+      text-align: center;
+      /* Centra el contenido de las celdas */
+  }
+
+  #detalle_total label {
+      border: 1px solid #000;
+      padding-left: 15px;
+      background-color: #D9D9D9;
+      border-radius: 10px;
+      display: block;
+      width: 100%;
+      line-height: 40px;
+      text-align: center;
+      /* Centra el texto dentro de las etiquetas */
+  }
+
+  #detalle_total tr {
+      border: 2px solid #ffffff;
+  }
+
+  #detalle_total {
+      width: 80%;
+      border: 2px solid rgb(0, 0, 0);
+      padding-top: 20px;
+      padding-right: 8px;
+      padding-bottom: 20px;
+      padding-left: 8px;
+      display: inline-block;
+      max-width: 100%;
+      text-align: center;
+      /* Centra la tabla en su contenedor */
+  }
+
+  #forma_pago_total {
+      display: flex;
+      align-items: center;
+      padding-bottom: 10px;
   }
 
   #derecha table {
       width: 100%;
   }
 
-  table {
-      border-collapse: collapse;
-      /* Para evitar espacios entre las celdas */
-
-  }
-
   #formaPago {
-      border: 4px solid rgb(255, 255, 255);
-      border-radius: 20px;
+      border-radius: 10px;
       background: #D9D9D9;
   }
 
-  th {
-      border: 4px solid rgb(255, 255, 255);
-      border-radius: 20px;
-      background: #D9D9D9;
-      
-  }
+  #formaPago th {
+      border-bottom: 4px solid #ffffff;
 
-  #tabla-contenedor {
-      width: 80%;
-      border: 2px solid rgb(0, 0, 0);
-      padding: 10px;
-      /* Espaciado interno del contenedor */
-      display: inline-block;
-      /* Para que el contenedor se ajuste al contenido */
-      max-width: 100%
-  }
-
-  #table-container {
-
-      max-width: 100%;
-      /* Asegura que la tabla se ajuste al ancho del contenedor */
-      margin: 0 auto;
-      /* Centra la tabla */
   }
 
   #imagen-adaptable {
@@ -141,7 +266,6 @@
       height: auto;
       margin-right: 20px;
   }
-
 
   h1 {
       color: #000;
@@ -155,20 +279,7 @@
       font-size: 25px;
   }
 
-  #numero {
-      width: 90%;
-  }
 
-  #numero th,
-  .numero td {
-      padding: 20px;
-      border: 1px solid black;
-      /* Agrega bordes a las celdas */
-  }
-
-  #nFactura {
-      text-align: center;
-  }
 
 
   /*Tabla de Herramientas*/
@@ -196,8 +307,16 @@
       background-color: #D9D9D9;
   }
 
-input{
-    border-radius: 10px; /* Puedes ajustar este valor según tu preferencia */
-  padding: 8px; /* Agrega algún espacio interno para mejorar la apariencia */
-  border: 1px solid #ccc; 
-}
+  input {
+      border-radius: 10px;
+      /* Puedes ajustar este valor según tu preferencia */
+      padding: 8px;
+      /* Agrega algún espacio interno para mejorar la apariencia */
+      border: 1px solid #ccc;
+  }
+
+  input[type="radio"] {
+      width: 30px;
+      height: 30px;
+  }
+
