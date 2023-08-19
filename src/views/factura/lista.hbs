@@ -51,44 +51,40 @@
 
     <nav>
         <div id="logoFintech"><a href="/"><img src="/img/logo.png" alt="FINTECH" height="80px"></a></div>
-
         <label for="click" id="menu-btn">
             <i id="fas fa-bars"></i>
         </label>
     </nav>
-
     <div id="contenedor"> 
-
-        <form id="formulario" action="/crear" method="post">
+        
+        <form id="formulario" action="tienda/lista/{{idTienda}}" method="get">
+            {{#each listar}}
+                {{#each mandar}}
             <div id="divConLinea">
                 <div id="izquierda">
-
-
                     <img id="imagen-adaptable"
-                        src="https://www.produccion.gob.ec/wp-content/uploads/2020/04/IMG-20200402-WA0042.jpg"
+                        src="{{fotoTienda}}"
                         alt="Imagen Adaptable">
-                    <h2>Viveres Carmita</h2>
-
+                    <h2 value="{{nombreTienda}}">{{nombreTienda}}</h2>
                     <div id="contenedor2">
-                        <h1>DANIELA PAOLA TARAPUES ROSERO</h1>
+                        <h1>{{dueñoTienda}}</h1>
                     </div>
                     <br>
                     <div>
-                        <p>Direccion Matriz: </p>
-                        <p>Direccion Sucursal: </p>
-                        <p>Contacto:</p>
+                        <p >Direccion Matriz: <b>{{dirección_matriz_tienda}}</b></p>
+                        <p >Direccion Sucursal: <b>{{direccion_sucursal_tienda}}</b></p>
+                        <p>Contacto:<b> {{telefono}}</b></p>
                     </div>
                 </div>
                 <div id="derecha">
                     <div id="tabla-contenedor">
                         <table border="1" id="numero">
-
                             <tr>
                                 <td>
                                     <h3>RUC</h3>
                                 </td>
                                 <td>
-                                    <h3>1790112233001</h3>
+                                    <h3>{{RUCTienda}}</h3>
                                 </td>
                             </tr>
                             <tr>
@@ -107,12 +103,10 @@
                             </tr>
                         </table>
                     </div>
-
                     <br>
                     <p>Fecha de Autorización: 11/10/2022 </p>
                 </div>
             </div>
-
             <div id="divConLinea">
                 <div id="izquierda">
                     <table id="borderless-table">
@@ -136,7 +130,6 @@
                         </tr>
                     </table>
                 </div>
-
                 <div id="derecha">
                     <table id="borderless-table">
                         <tr>
@@ -160,9 +153,7 @@
                             </td>
                         </tr>
                     </table>
-
                 </div>
-
             </div>
             <div id="divSeccion">
                 <table id="table-container">
@@ -179,11 +170,7 @@
                         <td><input type="text"></td>
                     </tr>
                 </table>
-
-
-
             </div>
-
             <div id="divSeccion">
                 <div id="izquierda">
                     <table id="formaPago">
@@ -237,9 +224,10 @@
                 </div>
             </div>
             <button type="submit">Crear</button>
-            
+            {{/each}}
+            {{/each}}
         </form>
-
+        <!-- Termina el formulario -->
         <div id="herramientasDiv">
             <table id="herramientas">
                 <tr>

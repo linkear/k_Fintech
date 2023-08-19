@@ -1,0 +1,246 @@
+<link rel="stylesheet" href="/css/crear.css">
+
+<title>Crear Factura</title>
+
+<head>
+    <script>
+        // Función para mostrar la fecha de creación
+        function mostrarFechaCreacion() {
+            var fechaActual = new Date();
+            var dia = fechaActual.getDate();
+            var mes = fechaActual.getMonth() + 1; // Los meses en JavaScript son base 0
+            var anio = fechaActual.getFullYear();
+
+            var fechaCreacion = dia + '/' + mes + '/' + anio;
+
+            document.getElementById('fecha-creacion').innerHTML = fechaCreacion;
+        }
+
+        function agregarFila() {
+            const table = document.querySelector('#table-container');
+            const newRow = table.insertRow();
+            for (let i = 0; i < 4; i++) {
+                const cell = newRow.insertCell();
+                const input = document.createElement('input');
+                input.type = i === 0 ? 'number' : 'text';
+                cell.appendChild(input);
+            }
+        }
+
+        function eliminarFila() {
+            const table = document.querySelector('#table-container');
+            const rows = table.rows;
+
+            // Verifica que haya al menos 3 filas (incluyendo la fila por defecto y la de títulos)
+            if (rows.length > 2) {
+                // Elimina la última fila
+                table.deleteRow(rows.length - 1);
+            }
+            else {
+                alert("No se pueden eliminar mas filas");
+            }
+        }
+
+
+    </script>
+
+
+</head>
+
+<body onload="mostrarFechaCreacion()">
+
+    <nav>
+        <div id="logoFintech"><a href="/"><img src="/img/logo.png" alt="FINTECH" height="80px"></a></div>
+        <label for="click" id="menu-btn">
+            <i id="fas fa-bars"></i>
+        </label>
+    </nav>
+    <div id="contenedor"> 
+        
+        <form id="formulario" action="factura/agregar/{{idTienda}}" method="post">
+            {{#each lista}}
+            <div id="divConLinea">
+                <div id="izquierda">
+                    <img id="imagen-adaptable"
+                        src="{{fotoTienda}}"
+                        alt="Imagen Adaptable">
+                    <h2 value="{{nombreTienda}}">{{nombreTienda}}</h2>
+                    <div id="contenedor2">
+                        <h1>{{dueñoTienda}}</h1>
+                    </div>
+                    <br>
+                    <div>
+                        <p >Direccion Matriz: <b>{{dirección_matriz_tienda}}</b></p>
+                        <p >Direccion Sucursal: <b>{{direccion_sucursal_tienda}}</b></p>
+                        <p>Contacto:<b> {{telefono}}</b></p>
+                    </div>
+                </div>
+                <div id="derecha">
+                    <div id="tabla-contenedor">
+                        <table border="1" id="numero">
+                            <tr>
+                                <td>
+                                    <h3>RUC</h3>
+                                </td>
+                                <td>
+                                    <h3>{{RUCTienda}}</h3>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" id="nFactura">
+                                    <h3>Factura </h3>
+                                    <h3>NO. OO2-002-123456789</h3>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h3>AUT.SRI</h3>
+                                </td>
+                                <td>
+                                    <h3>1234567890</h3>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <br>
+                    <p>Fecha de Autorización: 11/10/2022 </p>
+                </div>
+            </div>
+            <div id="divConLinea">
+                <div id="izquierda">
+                    <table id="borderless-table">
+                        <tr>
+                            <th>
+                                <p>Sr (es):</p>
+                            </th>
+                            <td><input name="nombre_cliente" type="text" required></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <p>Dirección:</p>
+                            </th>
+                            <td><input name="direccion_cliente" type="text " required></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <p>Celular:</p>
+                            </th>
+                            <td><input name="celular_cliente" type="text" required></td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="derecha">
+                    <table id="borderless-table">
+                        <tr>
+                            <th>
+                                <p>R.U.C/C.I. :</p>
+                            </th>
+                            <td><input name="cedula_cliente" type="number" required></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <p>Correo:</p>
+                            </th>
+                            <td><input name="correo_cliente" type="email" required></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <p>Fecha de emisión:</p>
+                            </th>
+                            <td>
+                                <p> <span name="fecha_emision" id="fecha-creacion" required></span></p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div id="divSeccion">
+                <table id="table-container">
+                    <tr>
+                        <th><p>CANT.</p></th>
+                        <th><p>DESCRIPCION</p></th>
+                        <th><p>P.UNITARIO</p></th>
+                        <th><p>V.TOTAL</p></th>
+                    </tr>
+                    <tr>
+                        <td><input name="cantidad" type="number" name="" id=""></td>
+                        <td><input name="descripcion"type="text"></td>
+                        <td><input name="precio_unitario"type="text"></td>
+                        <td><input name="precio_total"type="text"></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="divSeccion">
+                <div id="izquierda">
+                    <table id="formaPago">
+                        <tr>
+                            <th colspan="3">
+                                <h3>FORMA DE PAGO</h3>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>Efectivo</td>
+                            <td><input type="checkbox" name="efectivo" id="efectivo"></td>
+                            {{!-- <td><input type="text"></td> --}}
+                        </tr>
+                        <tr>
+                            <td>Tarjeta de crédito </td>
+                            <td><input type="checkbox" name="tarjeta" id="credito"></td>
+                            {{!-- <td><input type="text"></td> --}}
+                        </tr>
+                    </table>
+                </div>
+                <div id="derecha">
+                    <div id="tabla-contenedor">
+                        <table>
+                            <tr>
+                                <th>SUB TOTAL....%</th>
+                                <td><input name="valor_total" id="sub_total" type="text"></td>
+                            </tr>
+                            <tr>
+                                <th>SUB TOTAL 0%</th>
+                                <td><input name="base_imponible_0" type="text"> </td>
+                            </tr>
+                            <tr>
+                                <th>DESCUENTO</th>
+                                <td><input name="descuento" type="text"></td>
+                            </tr>
+                            <tr>
+                                <th>SUB TOTAL</th>
+                                <td><input name="valor_subtotal" type="text"></td>
+                            </tr>
+                            <tr>
+                                <th>IVA...%</th>
+                                <td><input name="valor_iva" type="text"></td>
+                            </tr>
+                            <tr>
+                                <th>VALOR TOTAL</th>
+                                <td><input name="valor_total" type="text" readonly value="Automático"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <button type="submit">Crear</button>
+        {{/each}}
+        </form>
+        <!-- Termina el formulario -->
+        <div id="herramientasDiv">
+            <table id="herramientas">
+                <tr>
+                    <th colspan="2">Herramientas</th>
+                </tr>
+                <tr>
+                    <td>Agregar Fila</td>
+                    <td><button id="button" onclick="agregarFila()">+</button></td>
+                </tr>
+                <tr>
+                    <td>Eliminar Fila</td>
+                    <td><button id="button" onclick="eliminarFila()">-</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+
+</body>
