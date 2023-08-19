@@ -1,0 +1,107 @@
+#logoFintech {
+    position: absolute;
+    top: 0;
+    left: 1%;
+}
+
+
+nav {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 50px 0px 100px;
+}
+
+
+nav #menu-btn i {
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    display: none;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    /* Establece el fondo del cuerpo con el gradiente */
+    background: linear-gradient(180deg, rgba(3, 13, 47, 0.80) 28.74%, rgba(58, 72, 192, 0.80) 49.05%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden;
+    /* Evita el desplazamiento vertical */
+}
+
+#herramientasDiv {
+    flex: 1;
+    /* Toma el espacio disponible en el contenedor */
+    padding: 20px;
+    /* Espaciado interno para la tabla de herramientas */
+}
+
+#contenedor {
+    background-image: url(/img/fondo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* Ajusta la imagen para cubrir todo el contenedor */
+    position: absolute;
+    border-radius: 10px;
+    top: 10;
+    right: 0;
+    /* Mantén el contenedor pegado al lado derecho */
+    width: 90%;
+    height: calc(100vh - 40px);
+    /* Cambiado la altura a 100% para que el contenedor cubra toda la altura, 40 px para mostrar mas abajo del contenido */
+    overflow: auto;
+    /* Permite el desplazamiento interno si el contenido es demasiado largo */
+}
+
+#contenido {
+
+    max-width: 100%;
+    margin: 0 auto;
+
+    padding: 20px;
+    text-align: center;
+   
+    width: 950px;
+}
+
+table {
+    width: 90%;
+    border-radius: 20px;
+
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    border: 1px solid #000000;
+    padding: 8px;
+    
+}
+td{
+    background-color: #ddd;
+    color: #000000;
+    text-align: left;
+}
+th {
+    background-color: #0c087e;
+    color: #ddd;
+    text-align: center;
+}
+button {
+    background-color: #ffffff;
+    border: 2px solid black;
+    position: absolute;
+    color: rgb(43, 43, 43);
+    padding: 10px 40px 10px 40px;
+    font-size: bold 25px;
+    cursor: pointer;
+    top: 5%;
+  right: 20px
+
+}
+
