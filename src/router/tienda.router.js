@@ -10,5 +10,5 @@ rutas.get('/lista/:id',isLoggedIn, lista)
 rutas.get('/editar/:id',isLoggedIn, traer)
 rutas.post('/editar/:id',isLoggedIn, actualizar)
 
-
 module.exports = rutas
+

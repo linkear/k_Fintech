@@ -10,11 +10,10 @@
                 <li><a id="active" href="/agregar">Agregar Tienda</a></li>
             </ul> --}}
         </nav>
-        <!-- !Cambiaste de idDueño a idDueños-->
-        <form action="/tienda/agregar/{{user.idDueños}}" method="post" id="contenedor">
+        <form action="/tienda/agregar/{user.idDueños{}}" method="post" id="contenedor">
             <div id="imagenNegocio">
                 <p>Imagen del Negocio</p>
-                <input name="fotoTienda" type="file" src="/img/file.png" accept="image/*" alt="Enviar" width="30%">
+                <input name="fotoTienda" type="file" src="/img/file.png" alt="Enviar" width="30%">
             </div>
                 {{!-- <input type="image" src="/img/file.png" id="imagen" > --}}
                 {{!-- <label for="" id="negocio">Nombre del Negocio</label><br> --}}
@@ -27,6 +26,4 @@
                 <input name="telefono" type="number"id="telefono" placeholder="No. telefono">
                 <button id="btn" type="submit">Guardar</button>
         </form>
-
-        
 </body>
