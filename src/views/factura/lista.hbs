@@ -52,12 +52,26 @@
 
     <nav>
         <div id="logoFintech"><a href="/"><img src="/img/logo.png" alt="FINTECH" height="80px"></a></div>
-
         <label for="click" id="menu-btn">
             <i id="fas fa-bars"></i>
 
         </label>
     </nav>
+<<<<<<< HEAD:src/views/factura/lista.hbs
+    <div id="contenedor"> 
+        
+        <form id="formulario" action="tienda/lista/{{idTienda}}" method="get">
+            {{#each listar}}
+                {{#each mandar}}
+            <div id="divConLinea">
+                <div id="izquierda">
+                    <img id="imagen-adaptable"
+                        src="{{fotoTienda}}"
+                        alt="Imagen Adaptable">
+                    <h2 value="{{nombreTienda}}">{{nombreTienda}}</h2>
+                    <div id="contenedor2">
+                        <h1>{{dueñoTienda}}</h1>
+=======
 
     <div id="contenedor">
 
@@ -74,12 +88,13 @@
 
 
                         <h1>DANIELA PAOLA TARAPUES ROSERO</h1>
+>>>>>>> f58a0dec139112169f7967c82e5d5dbb9931d050:src/views/factura/crear.hbs
                     </div>
                     <br>
                     <div>
-                        <p>Direccion Matriz: </p>
-                        <p>Direccion Sucursal: </p>
-                        <p>Contacto:</p>
+                        <p >Direccion Matriz: <b>{{dirección_matriz_tienda}}</b></p>
+                        <p >Direccion Sucursal: <b>{{direccion_sucursal_tienda}}</b></p>
+                        <p>Contacto:<b> {{telefono}}</b></p>
                     </div>
                 </div>
                 <div id="derecha">
@@ -90,7 +105,7 @@
                                     <h3>RUC</h3>
                                 </td>
                                 <td>
-                                    <h3>1790112233001</h3>
+                                    <h3>{{RUCTienda}}</h3>
                                 </td>
                             </tr>
                             <tr>
@@ -109,11 +124,58 @@
                             </tr>
                         </table>
                     </div>
-
                     <br>
                     <p>Fecha de Autorización: 11/10/2022 </p>
                 </div>
             </div>
+<<<<<<< HEAD:src/views/factura/lista.hbs
+            <div id="divConLinea">
+                <div id="izquierda">
+                    <table id="borderless-table">
+                        <tr>
+                            <th>
+                                <p>Sr (es):</p>
+                            </th>
+                            <td><input name="nombre" type="text" required></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <p>Dirección:</p>
+                            </th>
+                            <td><input name="direccion" type="text " required></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <p>Celular:</p>
+                            </th>
+                            <td><input name="celular" type="text" required></td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="derecha">
+                    <table id="borderless-table">
+                        <tr>
+                            <th>
+                                <p>R.U.C/C.I. :</p>
+                            </th>
+                            <td><input name="id" type="text" required></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <p>Correo:</p>
+                            </th>
+                            <td><input name="correo" type="text" required></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <p>Fecha de emisión:</p>
+                            </th>
+                            <td>
+                                <p> <span id="fecha-creacion" required></span></p>
+                            </td>
+                        </tr>
+                    </table>
+=======
             <div id="cliente">
                 <div id="divConLinea">
                     <div id="izquierda">
@@ -164,8 +226,8 @@
                         </table>
 
                     </div>
+>>>>>>> f58a0dec139112169f7967c82e5d5dbb9931d050:src/views/factura/crear.hbs
                 </div>
-
             </div>
             <br>
             <div>
@@ -184,8 +246,12 @@
                     </tr>
                 </table>
             </div>
+<<<<<<< HEAD:src/views/factura/lista.hbs
+            <div id="divSeccion">
+=======
             <br>
             <div id="forma_pago_total">
+>>>>>>> f58a0dec139112169f7967c82e5d5dbb9931d050:src/views/factura/crear.hbs
                 <div id="izquierda">
                     <table id="formaPago">
                         <tr>
@@ -239,9 +305,14 @@
                 </div>
             </div>
             <button type="submit">Crear</button>
+<<<<<<< HEAD:src/views/factura/lista.hbs
+            {{/each}}
+            {{/each}}
+=======
 
+>>>>>>> f58a0dec139112169f7967c82e5d5dbb9931d050:src/views/factura/crear.hbs
         </form>
-
+        <!-- Termina el formulario -->
         <div id="herramientasDiv">
             <table id="herramientas">
                 <tr>

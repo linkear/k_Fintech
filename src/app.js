@@ -56,9 +56,7 @@ app.set('view engine', '.hbs');
 
 
 //midlewars
-app.use(fileUpload({
-    createParentPath: true, // Crea los directorios necesarios para almacenar los archivos si no existen
-}));
+app.use(fileUpload());
 app.use(morgan('dev'));
 
 app.use(bodyparser.urlencoded({
@@ -99,11 +97,12 @@ app.use(require('./router/index.rutas'))
 app.use(require('./router/principal.router'))
 //Registro de la tienda
 app.use('/tienda', require('./router/tienda.router'))
-
-app.get('/factura', (req, res) => {
-    res.render('factura/factura');
-})
-app.get('/crear', (req, res) => {
-    res.render('factura/crear');
-})
+// app.use('/factura', require('./router/factura.router'))
+app.use(require('./router/factura.router'))
+// app.get('/factura', (req, res) => {
+//     res.render('factura/factura');
+// })
+// app.get('/crear', (req, res) => {
+//     res.render('factura/crear');
+// })
 module.exports = app;

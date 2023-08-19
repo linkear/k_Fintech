@@ -1,7 +1,10 @@
 const express = require('express');
-const {Mostrar} = require('../controller/factura.controller');
-const router = express.Router();
+const rutas = express.Router()
+const { mostrar, mandar, traer } = require ('../controller/factura.controller')
 
-router.get('/', Mostrar)
+const { isLoggedIn } = require('../lib/auth')
 
-module.exports = router 
+rutas.get('/factura/agregar/:id', isLoggedIn, mostrar)
+rutas.post('/factura/agregar/:id', isLoggedIn, mandar)
+
+module.exports = rutas 
