@@ -55,23 +55,21 @@
             <i id="fas fa-bars"></i>
         </label>
     </nav>
-    <div id="contenedor"> 
-        
+    <div id="contenedor">
+
         <form id="formulario" action="factura/agregar/{{idTienda}}" method="post">
             {{#each lista}}
             <div id="divConLinea">
                 <div id="izquierda">
-                    <img id="imagen-adaptable"
-                        src="{{fotoTienda}}"
-                        alt="Imagen Adaptable">
+                    <img id="imagen-adaptable" src="{{fotoTienda}}" alt="Imagen Adaptable">
                     <h2 value="{{nombreTienda}}">{{nombreTienda}}</h2>
                     <div id="contenedor2">
                         <h1>{{dueñoTienda}}</h1>
                     </div>
                     <br>
                     <div>
-                        <p >Direccion Matriz: <b>{{dirección_matriz_tienda}}</b></p>
-                        <p >Direccion Sucursal: <b>{{direccion_sucursal_tienda}}</b></p><br>
+                        <p>Direccion Matriz: <b>{{dirección_matriz_tienda}}</b></p>
+                        <p>Direccion Sucursal: <b>{{direccion_sucursal_tienda}}</b></p><br>
                         <p>Contacto:<b> {{telefono}}</b></p>
                     </div>
                 </div>
@@ -157,38 +155,52 @@
             <div id="divSeccion">
                 <table id="table-container">
                     <tr>
-                        <th><p>CANT.</p></th>
-                        <th><p>DESCRIPCION</p></th>
-                        <th><p>P.UNITARIO</p></th>
-                        <th><p>V.TOTAL</p></th>
+                        <th>
+                            <p>CANT.</p>
+                        </th>
+                        <th>
+                            <p>DESCRIPCION</p>
+                        </th>
+                        <th>
+                            <p>P.UNITARIO</p>
+                        </th>
+                        <th>
+                            <p>V.TOTAL</p>
+                        </th>
                     </tr>
                     <tr>
                         <td><input name="cantidad" type="number" name="" id=""></td>
-                        <td><input name="descripcion"type="text"></td>
-                        <td><input name="precio_unitario"type="text"></td>
-                        <td><input name="precio_total"type="text"></td>
+                        <td><input name="descripcion" type="text"></td>
+                        <td><input name="precio_unitario" type="text"></td>
+                        <td><input name="precio_total" type="text"></td>
                     </tr>
                 </table>
             </div>
             <div id="divSeccion">
                 <div id="izquierda">
-                    <table id="formaPago">
-                        <tr>
-                            <th colspan="3">
-                                <h3>FORMA DE PAGO</h3>
-                            </th>
-                        </tr>
-                        <tr>
-                            <td>Efectivo</td>
-                            <td><input type="checkbox" name="efectivo" id="efectivo"></td>
-                            {{!-- <td><input type="text"></td> --}}
-                        </tr>
-                        <tr>
-                            <td>Tarjeta de crédito </td>
-                            <td><input type="checkbox" name="tarjeta" id="credito"></td>
-                            {{!-- <td><input type="text"></td> --}}
-                        </tr>
-                    </table>
+                    <div id="izquierda_forma_pago">
+                        <table id="formaPago">
+                            <tr>
+                                <th colspan="3">
+                                    <h3>FORMA DE PAGO</h3>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td> Efectivo</td>
+                                <td>
+                                    <input type="checkbox" name="efectivo" id="efectivo">
+                                    <label for="efectivo"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Tarjeta de crédito</td>
+                                <td>
+                                    <input type="checkbox" name="tarjeta" id="credito">
+                                    <label for="credito"></label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
                 <div id="derecha">
                     <div id="tabla-contenedor">
@@ -221,8 +233,9 @@
                     </div>
                 </div>
             </div>
+            <br>
             <button type="submit">Crear</button>
-        {{/each}}
+            {{/each}}
         </form>
         <!-- Termina el formulario -->
         <div id="herramientasDiv">
@@ -241,6 +254,6 @@
             </table>
         </div>
     </div>
-    
+
 
 </body>
