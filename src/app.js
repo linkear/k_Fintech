@@ -102,7 +102,7 @@ app.use(require('./router/factura.router'))
 // app.get('/factura', (req, res) => {
 //     res.render('factura/factura');
 // })
-// app.get('/crear', (req, res) => {
-//     res.render('factura/crear');
-// })
+ app.get('/formulario', (req, res) => {
+    res.render('factura/formulario');
+ })
 module.exports = app;
