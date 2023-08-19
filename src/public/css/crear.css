@@ -81,6 +81,12 @@
       border-bottom: 2px dotted black;
       padding-bottom: 10px;
   }
+#divSeccion{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+}
 
   #dueño{
     border-bottom: 1px solid #000;
@@ -241,8 +247,8 @@
       /* Centra la tabla en su contenedor */
   }
 
-  #forma_pago_total {
-      display: flex;
+  #formaPago{
+      
       align-items: center;
       padding-bottom: 10px;
   }
@@ -250,7 +256,9 @@
   #derecha table {
       width: 100%;
   }
-
+#izquierda {
+text-align: center;
+}
   #formaPago {
       border-radius: 10px;
       background: #D9D9D9;
