@@ -57,11 +57,11 @@
     </nav>
     <div id="contenedor">
 
-        <form id="formulario" action="factura/agregar/{{idTienda}}" method="post">
+        <form id="formulario" action="factura/add/{{idTienda}}" method="post">
             {{#each lista}}
             <div id="divConLinea">
                 <div id="izquierda">
-                    <img id="imagen-adaptable" src="{{fotoTienda}}" alt="Imagen Adaptable">
+                    <img id="imagen-adaptable" src="/img/tienda/{{fotoTienda}}" alt="Imagen Adaptable">
                     <h2 value="{{nombreTienda}}">{{nombreTienda}}</h2>
                     <div id="contenedor2">
                         <h1>{{dueñoTienda}}</h1>
@@ -111,19 +111,19 @@
                             <th>
                                 <p>Sr (es):</p>
                             </th>
-                            <td><input name="nombre_cliente" type="text" required></td>
+                            <td><input name="nombre_cliente" type="text" ></td>
                         </tr>
                         <tr>
                             <th>
                                 <p>Dirección:</p>
                             </th>
-                            <td><input name="direccion_cliente" type="text " required></td>
+                            <td><input name="direccion_cliente" type="text " ></td>
                         </tr>
                         <tr>
                             <th>
                                 <p>Celular:</p>
                             </th>
-                            <td><input name="celular_cliente" type="text" required></td>
+                            <td><input name="celular_cliente" type="text" ></td>
                         </tr>
                     </table>
                 </div>
@@ -133,20 +133,20 @@
                             <th>
                                 <p>R.U.C/C.I. :</p>
                             </th>
-                            <td><input name="cedula_cliente" type="number" required></td>
+                            <td><input name="cedula_cliente" type="number" ></td>
                         </tr>
                         <tr>
                             <th>
                                 <p>Correo:</p>
                             </th>
-                            <td><input name="correo_cliente" type="email" required></td>
+                            <td><input name="correo_cliente" type="email" ></td>
                         </tr>
                         <tr>
                             <th>
                                 <p>Fecha de emisión:</p>
                             </th>
                             <td>
-                                <p> <span name="fecha_emision" id="fecha-creacion" required></span></p>
+                                <p> <span name="fecha_emision" id="fecha-creacion" ></span></p>
                             </td>
                         </tr>
                     </table>
@@ -169,7 +169,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <td><input name="cantidad" type="number" name="" id=""></td>
+                        <td><input name="cantidad" type="number" ></td>
                         <td><input name="descripcion" type="text"></td>
                         <td><input name="precio_unitario" type="text"></td>
                         <td><input name="precio_total" type="text"></td>
