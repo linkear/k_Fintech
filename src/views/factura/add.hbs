@@ -4,7 +4,7 @@
 
 <head>
     <script>
- 
+
         // Función para mostrar la fecha de creación
         function mostrarFechaCreacion() {
             var fechaActual = new Date();
@@ -17,12 +17,32 @@
             document.getElementById('fecha-creacion').innerHTML = fechaCreacion;
         }
 
-        // Función para calcular el precio total y actualizar el campo correspondiente
+
         function calcularPrecioTotal(row) {
-            var cantidad = parseFloat(row.querySelector('[name="cantidad"]').value);
-            var precioUnitario = parseFloat(row.querySelector('[name="precio_unitario"]').value);
-            var precioTotal = cantidad * precioUnitario;
-            row.querySelector('[name="precio_total"]').value = isNaN(precioTotal) ? '' : precioTotal.toFixed(2);
+            const cantidad = parseInt(row.querySelector('input[name="cantidad"]').value);
+            const precioUnitario = parseFloat(row.querySelector('input[name="precio_unitario"]').value);
+
+            const precioTotalInput = row.querySelector('input[name="precio_total"]');
+            const precioTotal = cantidad * precioUnitario;
+
+            precioTotalInput.value = precioTotal.toFixed(2);
+
+            calcularSubtotal();
+        }
+
+        function calcularSubtotal() {
+            const precioTotalInputs = document.querySelectorAll('input[name="precio_total"]');
+            let subtotal = 0;
+
+            precioTotalInputs.forEach(input => {
+                const precioTotal = parseFloat(input.value);
+                if (!isNaN(precioTotal)) {
+                    subtotal += precioTotal;
+                }
+            });
+
+            const subtotalInput = document.getElementById('sub_total');
+            subtotalInput.value = subtotal.toFixed(2);
         }
 
 
@@ -96,19 +116,19 @@
                             <th>
                                 <p>Sr (es):</p>
                             </th>
-                            <td><input name="nombre_cliente" type="text" ></td>
+                            <td><input name="nombre_cliente" type="text"></td>
                         </tr>
                         <tr>
                             <th>
                                 <p>Dirección:</p>
                             </th>
-                            <td><input name="direccion_cliente" type="text " ></td>
+                            <td><input name="direccion_cliente" type="text "></td>
                         </tr>
                         <tr>
                             <th>
                                 <p>Celular:</p>
                             </th>
-                            <td><input name="celular_cliente" type="text" ></td>
+                            <td><input name="celular_cliente" type="text"></td>
                         </tr>
                     </table>
                 </div>
@@ -118,20 +138,20 @@
                             <th>
                                 <p>R.U.C/C.I. :</p>
                             </th>
-                            <td><input name="cedula_cliente" type="number" ></td>
+                            <td><input name="cedula_cliente" type="number"></td>
                         </tr>
                         <tr>
                             <th>
                                 <p>Correo:</p>
                             </th>
-                            <td><input name="correo_cliente" type="email" ></td>
+                            <td><input name="correo_cliente" type="email"></td>
                         </tr>
                         <tr>
                             <th>
                                 <p>Fecha de emisión:</p>
                             </th>
                             <td>
-                                <p> <span name="fecha_emision" id="fecha-creacion" ></span></p>
+                                <p> <span name="fecha_emision" id="fecha-creacion"></span></p>
                             </td>
                         </tr>
                     </table>
@@ -154,9 +174,11 @@
                         </th>
                     </tr>
                     <tr>
-                        <td><input name="cantidad" type="number" oninput="calcularPrecioTotal(this.parentNode.parentNode)" ></td>
+                        <td><input name="cantidad" type="number"
+                                oninput="calcularPrecioTotal(this.parentNode.parentNode)"></td>
                         <td><input name="descripcion" type="text"></td>
-                        <td><input name="precio_unitario" type="text" oninput="calcularPrecioTotal(this.parentNode.parentNode)"></td>
+                        <td><input name="precio_unitario" type="text"
+                                oninput="calcularPrecioTotal(this.parentNode.parentNode)"></td>
                         <td><input name="precio_total" type="text" readonly></td>
                     </tr>
                 </table>
@@ -239,12 +261,12 @@
             </table>
         </div>
     </div>
- <script>
-const addButton = document.getElementById("add-row");
+    <script>
+        const addButton = document.getElementById("add-row");
         const removeButton = document.getElementById("remove-row");
         const table = document.getElementById("table-container");
 
-        addButton.addEventListener("click", function() {
+        addButton.addEventListener("click", function () {
             const newRow = table.rows[1].cloneNode(true);
             const inputs = newRow.getElementsByTagName("input");
             for (let input of inputs) {
@@ -253,12 +275,13 @@ const addButton = document.getElementById("add-row");
             table.appendChild(newRow);
         });
 
-        removeButton.addEventListener("click", function() {
+        removeButton.addEventListener("click", function () {
             const rows = table.getElementsByTagName("tr");
             if (rows.length > 2) {  // Deja al menos la fila original
                 table.removeChild(rows[rows.length - 1]);
             }
         });
     </script>
+
 
 </body>
