@@ -17,89 +17,93 @@
             document.getElementById('fecha-creacion').innerHTML = fechaCreacion;
         }
 
-function calcularTotales(row) {
-        const cantidad = parseInt(row.querySelector('input[name="cantidad"]').value);
-        const precioUnitario = parseFloat(row.querySelector('input[name="precio_unitario"]').value);
+        function calcularTotales(row) {
+            if (row) {
+                const cantidad = parseInt(row.querySelector('input[name="cantidad"]').value);
+                const precioUnitario = parseFloat(row.querySelector('input[name="precio_unitario"]').value);
 
-        const precioTotalInput = row.querySelector('input[name="precio_total"]');
-        const precioTotal = cantidad * precioUnitario;
+                const precioTotalInput = row.querySelector('input[name="precio_total"]');
+                const precioTotal = cantidad * precioUnitario;
 
-        precioTotalInput.value = precioTotal.toFixed(2);
-
-        calcularSubtotal();
-        calcularBaseImponible();
-        calcularDescuento();
-        calcularIVA();
-        calcularValorTotal();
-    }
-
-    function calcularSubtotal() {
-        const precioTotalInputs = document.querySelectorAll('input[name="precio_total"]');
-        let subtotal = 0;
-
-        precioTotalInputs.forEach(input => {
-            const precioTotal = parseFloat(input.value);
-            if (!isNaN(precioTotal)) {
-                subtotal += precioTotal;
+                precioTotalInput.value = precioTotal.toFixed(2);
             }
-        });
 
-        const subtotalInput = document.getElementById('sub_total');
-        subtotalInput.value = subtotal.toFixed(2);
-    }
+            calcularSubtotal();
+            calcularBaseImponible();
+            calcularDescuento();
+            calcularIVA();
+            calcularValorTotal();
+        }
 
-    function calcularBaseImponible() {
-        const baseImponible0Input = document.querySelector('input[name="base_imponible_0"]');
-        const baseImponible12Input = document.querySelector('input[name="base_imponible_12"]');
-        
-        baseImponible0Input.value = '0.00';
-        baseImponible12Input.value = '0.00';
-        
-        const precioTotalInputs = document.querySelectorAll('input[name="precio_total"]');
-        
-        precioTotalInputs.forEach(input => {
-            const precioTotal = parseFloat(input.value);
-            if (!isNaN(precioTotal)) {
-                if (input.parentNode.parentNode.querySelector('input[name="precio_unitario"]').value == 0) {
-                    baseImponible0Input.value = (parseFloat(baseImponible0Input.value) + precioTotal).toFixed(2);
-                } else {
-                    baseImponible12Input.value = (parseFloat(baseImponible12Input.value) + precioTotal).toFixed(2);
+        function calcularSubtotal() {
+            const precioTotalInputs = document.querySelectorAll('input[name="precio_total"]');
+            let subtotal = 0;
+
+            precioTotalInputs.forEach(input => {
+                const precioTotal = parseFloat(input.value);
+                if (!isNaN(precioTotal)) {
+                    subtotal += precioTotal;
                 }
+            });
+
+            const subtotalInput = document.getElementById('sub_total');
+            subtotalInput.value = subtotal.toFixed(2);
+        }
+
+        function calcularBaseImponible() {
+            const baseImponible0Input = document.querySelector('input[name="base_imponible_0"]');
+            const baseImponible12Input = document.querySelector('input[name="base_imponible_12"]');
+
+            baseImponible0Input.value = '0.00';
+            baseImponible12Input.value = '0.00';
+
+            const precioTotalInputs = document.querySelectorAll('input[name="precio_total"]');
+
+            precioTotalInputs.forEach(input => {
+                const precioTotal = parseFloat(input.value);
+                if (!isNaN(precioTotal)) {
+                    const precioUnitario = parseFloat(input.parentNode.parentNode.querySelector('input[name="precio_unitario"]').value);
+                    if (precioUnitario == 0) {
+                        baseImponible0Input.value = (parseFloat(baseImponible0Input.value) + precioTotal).toFixed(2);
+                    } else {
+                        baseImponible12Input.value = (parseFloat(baseImponible12Input.value) + precioTotal).toFixed(2);
+                    }
+                }
+            });
+        }
+        function calcularDescuento() {
+            const descuentoInput = document.querySelector('input[name="descuento"]');
+            const descuento = parseFloat(descuentoInput.value);
+
+            if (!isNaN(descuento)) {
+                // No es necesario realizar cálculos aquí, el descuento se aplicará en calcularValorTotal()
+                calcularValorTotal();
             }
-        });
-    }
-    
-    function calcularDescuento() {
-        const descuentoInput = document.querySelector('input[name="descuento"]');
-        const descuento = parseFloat(descuentoInput.value);
-        const subtotal = parseFloat(document.getElementById('sub_total').value);
-        
-        if (!isNaN(descuento) && !isNaN(subtotal)) {
-            const descuentoAmount = (subtotal * descuento) / 100;
-            descuentoInput.value = descuentoAmount.toFixed(2);
         }
-    }
-    
-    function calcularIVA() {
-        const baseImponible12 = parseFloat(document.querySelector('input[name="base_imponible_12"]').value);
-        const valorIVAInput = document.querySelector('input[name="valor_iva"]');
-        
-        if (!isNaN(baseImponible12)) {
-            const valorIVA = (baseImponible12 * 0.12).toFixed(2);
-            valorIVAInput.value = valorIVA;
+
+        function calcularIVA() {
+            const baseImponible12 = parseFloat(document.querySelector('input[name="base_imponible_12"]').value);
+            const valorIVAInput = document.querySelector('input[name="valor_iva"]');
+
+            if (!isNaN(baseImponible12)) {
+                const valorIVA = (baseImponible12 * 0.12).toFixed(2);
+                valorIVAInput.value = valorIVA;
+            }
+            calcularValorTotal();
         }
-    }
-    
-    function calcularValorTotal() {
-        const subtotal = parseFloat(document.getElementById('sub_total').value);
-        const valorIVA = parseFloat(document.querySelector('input[name="valor_iva"]').value);
-        const descuento = parseFloat(document.querySelector('input[name="descuento"]').value);
-        
-        const valorTotalInput = document.querySelector('input[name="valor_total"]');
-        const valorTotal = (subtotal + valorIVA - descuento).toFixed(2);
-        
-        valorTotalInput.value = valorTotal;
-    }
+
+        function calcularValorTotal() {
+            const subtotal = parseFloat(document.getElementById('sub_total').value);
+            const valorIVA = parseFloat(document.querySelector('input[name="valor_iva"]').value);
+            const descuento = parseFloat(document.querySelector('input[name="descuento"]').value);
+
+            const valorTotalInput = document.querySelector('input[name="valor_total"]');
+            const valorTotal = (subtotal + valorIVA - descuento).toFixed(2);
+
+            valorTotalInput.value = valorTotal;
+        }
+
+
     </script>
 
 
@@ -227,8 +231,8 @@ function calcularTotales(row) {
                         </th>
                     </tr>
                     <tr>
-                        <td><input name="cantidad" type="number"
-                                oninput="calcularTotales(this.parentNode.parentNode)"></td>
+                        <td><input name="cantidad" type="number" oninput="calcularTotales(this.parentNode.parentNode)">
+                        </td>
                         <td><input name="descripcion" type="text"></td>
                         <td><input name="precio_unitario" type="text"
                                 oninput="calcularTotales(this.parentNode.parentNode)"></td>
@@ -271,15 +275,15 @@ function calcularTotales(row) {
                             </tr>
                             <tr>
                                 <th>BASE IMPONIBLE 0%</th>
-                                <td><input name="base_imponible_0" type="text"> </td>
+                                <td><input name="base_imponible_0" type="text" readonly> </td>
                             </tr>
                             <tr>
                                 <th>BASE IMPONIBLE 12%</th>
-                                <td><input name="base_imponible_12" type="text"></td>
+                                <td><input name="base_imponible_12" type="text" readonly></td>
                             </tr>
                             <tr>
                                 <th>DESCUENTO</th>
-                                <td><input name="descuento" type="text" oninput="calcularTotales(this.parentNode.parentNode.parentNode)"></td>
+                                <td><input name="descuento" type="text" oninput="calcularDescuento()"></td>
                             </tr>
                             <tr>
                                 <th>IVA 12%</th>
@@ -324,16 +328,34 @@ function calcularTotales(row) {
             const inputs = newRow.getElementsByTagName("input");
             for (let input of inputs) {
                 input.value = "";
+                input.removeAttribute("readonly"); // Habilitar edición para la nueva fila
             }
             table.appendChild(newRow);
         });
 
         removeButton.addEventListener("click", function () {
             const rows = table.getElementsByTagName("tr");
-            if (rows.length > 2) {  // Deja al menos la fila original
+            if (rows.length > 2) {
                 table.removeChild(rows[rows.length - 1]);
+                calcularTotales(); // Calcular totales después de eliminar la fila
+                calcularBaseImponible(); // Recalcular las bases imponibles
+                calcularDescuento(); // Recalcular el descuento después de eliminar la fila
+                calcularIVA(); // Recalcular el IVA después de eliminar la fila
+                calcularValorTotal(); // Recalcular el valor total después de eliminar la fila
+            } else {
+                // Si solo queda una fila, restablecer los valores a cero
+                const descuentoInput = document.querySelector('input[name="descuento"]');
+                descuentoInput.value = '0.00';
+
+                const valorIVAInput = document.querySelector('input[name="valor_iva"]');
+                valorIVAInput.value = '0.00';
+
+                const valorTotalInput = document.querySelector('input[name="valor_total"]');
+                valorTotalInput.value = '0.00';
             }
         });
+
+
     </script>
 
 
