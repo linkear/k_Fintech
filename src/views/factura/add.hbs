@@ -17,36 +17,89 @@
             document.getElementById('fecha-creacion').innerHTML = fechaCreacion;
         }
 
+function calcularTotales(row) {
+        const cantidad = parseInt(row.querySelector('input[name="cantidad"]').value);
+        const precioUnitario = parseFloat(row.querySelector('input[name="precio_unitario"]').value);
 
-        function calcularPrecioTotal(row) {
-            const cantidad = parseInt(row.querySelector('input[name="cantidad"]').value);
-            const precioUnitario = parseFloat(row.querySelector('input[name="precio_unitario"]').value);
+        const precioTotalInput = row.querySelector('input[name="precio_total"]');
+        const precioTotal = cantidad * precioUnitario;
 
-            const precioTotalInput = row.querySelector('input[name="precio_total"]');
-            const precioTotal = cantidad * precioUnitario;
+        precioTotalInput.value = precioTotal.toFixed(2);
 
-            precioTotalInput.value = precioTotal.toFixed(2);
+        calcularSubtotal();
+        calcularBaseImponible();
+        calcularDescuento();
+        calcularIVA();
+        calcularValorTotal();
+    }
 
-            calcularSubtotal();
-        }
+    function calcularSubtotal() {
+        const precioTotalInputs = document.querySelectorAll('input[name="precio_total"]');
+        let subtotal = 0;
 
-        function calcularSubtotal() {
-            const precioTotalInputs = document.querySelectorAll('input[name="precio_total"]');
-            let subtotal = 0;
+        precioTotalInputs.forEach(input => {
+            const precioTotal = parseFloat(input.value);
+            if (!isNaN(precioTotal)) {
+                subtotal += precioTotal;
+            }
+        });
 
-            precioTotalInputs.forEach(input => {
-                const precioTotal = parseFloat(input.value);
-                if (!isNaN(precioTotal)) {
-                    subtotal += precioTotal;
+        const subtotalInput = document.getElementById('sub_total');
+        subtotalInput.value = subtotal.toFixed(2);
+    }
+
+    function calcularBaseImponible() {
+        const baseImponible0Input = document.querySelector('input[name="base_imponible_0"]');
+        const baseImponible12Input = document.querySelector('input[name="base_imponible_12"]');
+        
+        baseImponible0Input.value = '0.00';
+        baseImponible12Input.value = '0.00';
+        
+        const precioTotalInputs = document.querySelectorAll('input[name="precio_total"]');
+        
+        precioTotalInputs.forEach(input => {
+            const precioTotal = parseFloat(input.value);
+            if (!isNaN(precioTotal)) {
+                if (input.parentNode.parentNode.querySelector('input[name="precio_unitario"]').value == 0) {
+                    baseImponible0Input.value = (parseFloat(baseImponible0Input.value) + precioTotal).toFixed(2);
+                } else {
+                    baseImponible12Input.value = (parseFloat(baseImponible12Input.value) + precioTotal).toFixed(2);
                 }
-            });
-
-            const subtotalInput = document.getElementById('sub_total');
-            subtotalInput.value = subtotal.toFixed(2);
+            }
+        });
+    }
+    
+    function calcularDescuento() {
+        const descuentoInput = document.querySelector('input[name="descuento"]');
+        const descuento = parseFloat(descuentoInput.value);
+        const subtotal = parseFloat(document.getElementById('sub_total').value);
+        
+        if (!isNaN(descuento) && !isNaN(subtotal)) {
+            const descuentoAmount = (subtotal * descuento) / 100;
+            descuentoInput.value = descuentoAmount.toFixed(2);
         }
-
-
-
+    }
+    
+    function calcularIVA() {
+        const baseImponible12 = parseFloat(document.querySelector('input[name="base_imponible_12"]').value);
+        const valorIVAInput = document.querySelector('input[name="valor_iva"]');
+        
+        if (!isNaN(baseImponible12)) {
+            const valorIVA = (baseImponible12 * 0.12).toFixed(2);
+            valorIVAInput.value = valorIVA;
+        }
+    }
+    
+    function calcularValorTotal() {
+        const subtotal = parseFloat(document.getElementById('sub_total').value);
+        const valorIVA = parseFloat(document.querySelector('input[name="valor_iva"]').value);
+        const descuento = parseFloat(document.querySelector('input[name="descuento"]').value);
+        
+        const valorTotalInput = document.querySelector('input[name="valor_total"]');
+        const valorTotal = (subtotal + valorIVA - descuento).toFixed(2);
+        
+        valorTotalInput.value = valorTotal;
+    }
     </script>
 
 
@@ -175,10 +228,10 @@
                     </tr>
                     <tr>
                         <td><input name="cantidad" type="number"
-                                oninput="calcularPrecioTotal(this.parentNode.parentNode)"></td>
+                                oninput="calcularTotales(this.parentNode.parentNode)"></td>
                         <td><input name="descripcion" type="text"></td>
                         <td><input name="precio_unitario" type="text"
-                                oninput="calcularPrecioTotal(this.parentNode.parentNode)"></td>
+                                oninput="calcularTotales(this.parentNode.parentNode)"></td>
                         <td><input name="precio_total" type="text" readonly></td>
                     </tr>
                 </table>
@@ -214,7 +267,7 @@
                         <table>
                             <tr>
                                 <th>SUB TOTAL</th>
-                                <td><input name="valor_subtotal" id="sub_total" type="text"></td>
+                                <td><input name="valor_subtotal" id="sub_total" type="text" readonly></td>
                             </tr>
                             <tr>
                                 <th>BASE IMPONIBLE 0%</th>
@@ -226,15 +279,15 @@
                             </tr>
                             <tr>
                                 <th>DESCUENTO</th>
-                                <td><input name="descuento" type="text"></td>
+                                <td><input name="descuento" type="text" oninput="calcularTotales(this.parentNode.parentNode.parentNode)"></td>
                             </tr>
                             <tr>
                                 <th>IVA 12%</th>
-                                <td><input name="valor_iva" type="text"></td>
+                                <td><input name="valor_iva" type="text" readonly></td>
                             </tr>
                             <tr>
                                 <th>VALOR TOTAL</th>
-                                <td><input name="valor_total" type="text" readonly value="Automático"></td>
+                                <td><input name="valor_total" type="text" readonly></td>
                             </tr>
                         </table>
                     </div>
