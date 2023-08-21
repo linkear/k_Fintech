@@ -118,7 +118,7 @@
         </label>
     </nav>
     <div id="contenedor">
-
+    
         <form id="formulario" action="factura/add/{{idTienda}}" method="post">
             {{#each lista}}
             <div id="divConLinea">
@@ -215,19 +215,19 @@
                 </div>
             </div>
             <div id="divSeccion">
-                <table id="table-container">
+                <table id="detalle_factura">
                     <tr>
                         <th>
-                            <p>CANT.</p>
+                            <label>CANT.</label>
                         </th>
                         <th>
-                            <p>DESCRIPCION</p>
+                            <label>DESCRIPCION</label>
                         </th>
                         <th>
-                            <p>P.UNITARIO</p>
+                            <label>P.UNITARIO</label>
                         </th>
                         <th>
-                            <p>V.TOTAL</p>
+                            <label>V.TOTAL</label>
                         </th>
                     </tr>
                     <tr>
@@ -267,30 +267,30 @@
                     </div>
                 </div>
                 <div id="derecha">
-                    <div id="tabla-contenedor">
+                    <div id="detalle_total">
                         <table>
                             <tr>
-                                <th>SUB TOTAL</th>
+                                <th><label>SUB TOTAL</label></th>
                                 <td><input name="valor_subtotal" id="sub_total" type="text" readonly></td>
                             </tr>
                             <tr>
-                                <th>BASE IMPONIBLE 0%</th>
+                                <th><label>BASE IMPONIBLE 0%</label></th>
                                 <td><input name="base_imponible_0" type="text" readonly> </td>
                             </tr>
                             <tr>
-                                <th>BASE IMPONIBLE 12%</th>
+                                <th><label>BASE IMPONIBLE 12%</label></th>
                                 <td><input name="base_imponible_12" type="text" readonly></td>
                             </tr>
                             <tr>
-                                <th>DESCUENTO</th>
+                                <th><label>DESCUENTO</label></th>
                                 <td><input name="descuento" type="text" oninput="calcularDescuento()"></td>
                             </tr>
                             <tr>
-                                <th>IVA 12%</th>
+                                <th><label>IVA 12%</label></th>
                                 <td><input name="valor_iva" type="text" readonly></td>
                             </tr>
                             <tr>
-                                <th>VALOR TOTAL</th>
+                                <th><label>VALOR TOTAL</label></th>
                                 <td><input name="valor_total" type="text" readonly></td>
                             </tr>
                         </table>
@@ -298,11 +298,16 @@
                 </div>
             </div>
             <br>
+            
             <button type="submit">Crear</button>
             {{/each}}
+            <br>
+            <br>
+            <br>
+            
         </form>
         <!-- Termina el formulario -->
-        <div id="herramientasDiv">
+    <div id="herramientasDiv">
             <table id="herramientas">
                 <tr>
                     <th colspan="2">Herramientas</th>
@@ -318,10 +323,11 @@
             </table>
         </div>
     </div>
-    <script>
+  
+  <script>
         const addButton = document.getElementById("add-row");
         const removeButton = document.getElementById("remove-row");
-        const table = document.getElementById("table-container");
+        const table = document.getElementById("detalle_factura");
 
         addButton.addEventListener("click", function () {
             const newRow = table.rows[1].cloneNode(true);
@@ -342,21 +348,13 @@
                 calcularDescuento(); // Recalcular el descuento después de eliminar la fila
                 calcularIVA(); // Recalcular el IVA después de eliminar la fila
                 calcularValorTotal(); // Recalcular el valor total después de eliminar la fila
-            } else {
-                // Si solo queda una fila, restablecer los valores a cero
-                const descuentoInput = document.querySelector('input[name="descuento"]');
-                descuentoInput.value = '0.00';
-
-                const valorIVAInput = document.querySelector('input[name="valor_iva"]');
-                valorIVAInput.value = '0.00';
-
-                const valorTotalInput = document.querySelector('input[name="valor_total"]');
-                valorTotalInput.value = '0.00';
+            } 
+            else{
+                alert("No se pueden eliminar mas filas")
             }
         });
 
 
     </script>
-
 
 </body>
