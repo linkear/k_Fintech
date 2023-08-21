@@ -107,6 +107,7 @@
      justify-content: center;
      border-bottom: 2px dotted black;
      padding-bottom: 10px;
+   
  }
 
  #divSeccion {
@@ -147,6 +148,13 @@
      text-align: left;
      vertical-align: middle;
  }
+#derecha #cliente{
+    margin-top: 20px;
+}
+#izquierda #cliente{
+    width: 100%;
+}
+
 
  #cliente input,
  #cliente label {
@@ -156,7 +164,6 @@
      border: 1px solid #000;
      background: #D9D9D9;
      box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25), 0px 3px 3px 0px rgba(0, 0, 0, 0.25);
-     height: 40px;
      padding: 0 10px;
      line-height: 40px;
  }
@@ -165,6 +172,7 @@
      width: auto;
      /* Ancho se ajustará al contenido */
      padding-right: 10px;
+     margin-top: 10px;
  }
 
  #cliente table {
@@ -175,16 +183,17 @@
  #izquierda {
      flex: 1;
      text-align: left;
-     padding-right: 10px;
+     padding-right: 20px;
+     
  }
 
 
-
  #derecha {
+  
      flex: 1;
      text-align: right;
      padding-left: 20px;
-     padding-right: 20px;
+  
  }
 
  #contenedor2 {
