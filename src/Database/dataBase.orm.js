@@ -55,6 +55,7 @@ sequelize.sync({ force: false })
 	const detalle_factura = detalleFacturaModel(sequelize, Sequelize)
 	const detalle_total = detalleTotalModel(sequelize, Sequelize)
 	
+	
 	//relacion tienda-dueño
 	dueño.hasMany(tienda)
 	tienda.belongsTo(dueño)
@@ -64,21 +65,20 @@ sequelize.sync({ force: false })
 	factura.belongsTo(tienda)
 	
 	//relacion factura-cliente
-	factura.hasMany(cliente)
-	cliente.belongsTo(factura)
+	cliente.hasMany(factura)
+	factura.belongsTo(cliente)
 	
 	//relacion factura-forma_pago
-	factura.hasMany(forma_pago)
-	forma_pago.belongsTo(factura)
+	forma_pago.hasMany(factura)
+	factura.belongsTo(forma_pago)
 	
 	//relacion factura-detalle_factura
-	factura.hasMany(detalle_factura)
-	detalle_factura.belongsTo(factura)
+	detalle_factura.hasMany(factura)
+	factura.belongsTo(detalle_factura)
 	
 	//relacion factura-detalle_total
-	factura.hasMany(detalle_total)
-	detalle_total.belongsTo(factura)
-	
+	detalle_total.hasMany(factura)
+	factura.belongsTo(detalle_total)
 	
 	module.exports = {
 		dueño,
