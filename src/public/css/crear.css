@@ -77,9 +77,9 @@
  }
 #contenedor #herramientasDiv{
     position: absolute;
-    top: 70%;
+    top: 80%;
     right: 20px;
-    
+    transform: translateY(80%);
 }
 #contenedor #herramientas{
     background-color: #cccccc92;
