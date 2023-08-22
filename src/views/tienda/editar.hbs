@@ -12,10 +12,10 @@
         </nav>
         {{#each lista}}
         <form action="/tienda/editar/{{idTienda}}" method="post" id="contenedor">
-            <div id="imagenNegocio">
+            {{!-- <div id="imagenNegocio">
                 <p>Imagen del Negocio</p>
                 <input name="fotoTienda" value ="{{fotoTienda}}" type="file" src="/img/file.png" alt="Enviar" width="30%">
-            </div>
+            </div> --}}
                 {{!-- <input type="image" src="/img/file.png" id="imagen" > --}}
                 {{!-- <label for="" id="negocio">Nombre del Negocio</label><br> --}}
                 <input name="nombreTienda"value="{{nombreTienda}}" type="text" id="negocio" placeholder="Nombre del Negocio">

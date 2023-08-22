@@ -35,7 +35,6 @@ body {
     padding: 20px;
     /* Espaciado interno para la tabla de herramientas */
 }
-
 #contenedor {
     background-image: url(/img/fondo.png);
     background-repeat: no-repeat;
@@ -49,10 +48,8 @@ body {
     width: 90%;
     height: calc(100vh - 40px);
     /* Cambiado la altura a 100% para que el contenedor cubra toda la altura, 40 px para mostrar mas abajo del contenido */
-    overflow: auto;
     /* Permite el desplazamiento interno si el contenido es demasiado largo */
 }
-
 #contenido {
     max-width: 100%;
     margin: 0 auto;
@@ -60,7 +57,6 @@ body {
     text-align: center;
     width: 950px;
 }
-
 #agregarTiendaBtn {
     background-color: #ffffff;
     border: 2px solid black;
@@ -68,61 +64,102 @@ body {
     color: rgb(43, 43, 43);
     font-size: bold 25px;
     top: 2%;
-    left: 85%;
-    width: 10%;
+    left: 80%;
+    width: 9%;
     height: 6%;
     right: 20px
 }
-
 .table {
-    width: 100%;
-    border: 1px solid #ccc;
-    border-collapse: collapse;
-    margin: 0;
-    padding: 0;
-    table-layout: fixed;
+    position: absolute;
+    top: 12%;
+    left: 15%;
+    width: 60%;
+    border: 1px solid #000000;
+    color: black;
+    text-align: center;
 }
 .table tr {
     background-color: #f8f8f8;
-    border: 1px solid #ddd;
+    border: 1px solid #000000;
 }
 .table th, .table td {
     font-size: 16px;
     padding: 8px;
     text-align: center;
-    background-color: #0c087e;
+    background-color: #0c087eab;
 }
 .table thead th{ 
     text-transform: uppercase;
-    background-color: #ddd;
+    background-color: #0c087ef3;
 }
-
 .table tbody tr:hover {
     background-color: rgba(0, 0, 0, 0.2);
 }
-
 .table tbody td:hover {
     background-color: rgba(0, 0, 0, 0.3);
-}
-@media only screen and (max-width : 320px) {
+} 
+
+@media only screen and (max-width : 375px) {
     #agregarTiendaBtn {
         position: absolute;
         top: 3%;
         left: 30%;
         width: 40%;
     }
-}
+    .table{
+        position: absolute;
+        width: 70%;
+        height: 50%;
+        left: 3%;
+    }
+    .table .tr {
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+    }
+    .table th, .table td {
+        font-size: 12px;
+    }
+    .table td {
+        display: block;
+        border-bottom: 1px solid #ddd;
+        text-align: right;
+    }
+} 
 
-
-@media screen and (max-width: 600px) {
+ @media only screen and (max-width: 425px){
+    #agregarTiendaBtn {
+        position: absolute;
+        top: 3%;
+        left: 30%;
+        width: 40%;
+    }
+    .table{
+        width: 70%;
+        height: 50%;
+    }
+    .table .tr {
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+    }
+    .table th, .table td {
+        font-size: 12px;
+    }
+    .table td {
+        display: block;
+        border-bottom: 1px solid #ddd;
+        text-align: right;
+    }
+} 
+/* @media screen and (max-width: 600px) {
     .table {
-        border: 0px;
+        width: 10%;
+        position: absolute;
+        left: 10%;
     }
     .table caption {
         font-size: 22px;
-    }
-    .table thead {
-        display: none;
     }
     .table tr {
         margin-bottom: 8px;
@@ -146,4 +183,29 @@ body {
         text-transform: uppercase;
         float: left;
     }
-} 
+} */
+@media only screen and (min-width: 768px) {
+    #agregarTiendaBtn {
+        position: absolute;
+        top: 1%;
+        left: 75%;
+        width: 15%;
+    }
+    .table{
+        width: 70%;
+        height: 50%;
+    }
+    .table .tr {
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+    }
+    .table th, .table td {
+        font-size: 12px;
+    }
+    .table td {
+        display: block;
+        border-bottom: 1px solid #ddd;
+        text-align: right;
+    }
+}  
